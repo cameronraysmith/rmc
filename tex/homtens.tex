@@ -1,0 +1,325 @@
+%\subsection{products}
+%\begin{frame}
+%If $A = \{ J, M \}$, then $A \times A = \{ (J,M),(J,J),(M,J),(M,M) \}$ gives us all the pairs in the set $A$ according to the standard set theoretic cartesian product. In category theory, we can write this using {\it projection maps}
+%$$p_1 : (a_1 , a_2) \mapsto a_1$$
+%$$p_2 : (a_1 , a_2) \mapsto a_2$$
+%and a commutative diagram
+%$$
+%\xymatrix{
+%Z \ar[rrrd]^\beta \ar@{-->}[rrd]_\gamma \ar[rrdd]_\alpha & & \\
+%& & P \ar[d]_{p_1} \ar[r]_{p_2} & A \\
+%& & A &
+%}
+%$$
+%where $P = A \times A$
+%\end{frame}
+%
+%\begin{frame}
+%But we can find another $P$ satisfying the given conditions. For example let $P=\{1,2,3,4\}$. Then we can provide {\it ad hoc} {\it projection maps}
+%$$p'_1 : 1 \mapsto J, \, 2 \mapsto J, \, 3 \mapsto M, \, 4 \mapsto M$$
+%$$p'_2 : 1 \mapsto J, \, 2 \mapsto M, \, 3 \mapsto J, \, 4 \mapsto M$$
+%that allow the same diagram to commute for a different $\gamma$
+%$$
+%\xymatrix{
+%Z \ar[rrrd]^\beta \ar@{-->}[rrd]_\gamma \ar[rrdd]_\alpha & & \\
+%& & P \ar[d]_{p_1} \ar[r]_{p_2} & A \\
+%& & A &
+%}
+%$$
+%\end{frame}
+
+\subsection{adjoint functors}
+
+\begin{frame}
+Let $\mathcal{C}$, $\mathcal{D}$ be categories.
+Let $F : \mathcal{C} \to \mathcal{D}$ and
+$G : \mathcal{D} \to \mathcal{C}$ be functors.
+We say that $F$ is a {\it left adjoint} of $G$ or that
+$G$ is a {\it right adjoint} to $F$, written $F \dashv G$, if there are bijections
+\begin{block}{Hom-set formulation of adjunction}
+$$
+\phi_{c,d}:\Mor_\mathcal{D}(Fc, d)
+\simeq
+\Mor_\mathcal{C}(c, Gd)
+$$
+\end{block}
+functorial in $c \in \Ob(\mathcal{C})$, and
+$d \in \Ob(\mathcal{D})$.
+\end{frame}
+%
+\begin{frame}
+Morphisms that are associated with each other according to the bijections of an adjunction are called {\it adjoint transposes} of one another. 
+
+There is a correspondence
+\begin{block}{}
+\abovedisplayskip=0pt
+\begin{align*}
+g &: Fc \rightarrow d, \,\, g \in \Mor(\mathcal{D})\\
+g^* &: c \rightarrow Gd, \,\, g^* \in \Mor(\mathcal{C})
+\end{align*}
+\end{block}
+given by $\phi_{c,d}(g) = g^*$. 
+Similarly for 
+\begin{block}{}
+\abovedisplayskip=0pt
+\begin{align*}
+f &: c \rightarrow Gd, \,\, f \in \Mor(\mathcal{C})\\
+f^* &: Fc \rightarrow d, \,\, f^* \in \Mor(\mathcal{D}) 
+\end{align*}
+\end{block}
+given by $\phi_{c,d}^{-1}(f) = f^*$. 
+We see then that $g^* = f$ and $f^* = g$.
+\end{frame}
+%
+\begin{frame}
+Consider the identity morphism $1_{Fc} \in \Mor_{\mathcal{D}}(Fc,Fc)$. The adjoint transpose of $1_{Fc}$ is the {\it unit} morphism at $c$
+\begin{block}{unit morphism}
+\abovedisplayskip=0pt
+$$
+\phi_{c,Fc}(1_{Fc})=1_{Fc}^*=\eta_c: c \rightarrow GFc
+$$
+\end{block}
+where $\eta_c \in \Mor_{\mathcal{C}}(c,GFc)$, which, when taken to be natural in $c \in \Ob(\mathcal{C})$, gives the natural transformation
+\begin{block}{unit natural transformation}
+\abovedisplayskip=0pt
+$$
+\eta : 1_{\mathcal{C}} \Rightarrow GF
+$$
+\end{block}
+\end{frame}
+%
+\begin{frame}
+Consider the identity morphism $1_{Gd} \in \Mor_{\mathcal{C}}(Gd,Gd)$. The adjoint transpose of $1_{Gd}$ is the {\it counit} morphism at $d$
+\begin{block}{counit morphism}
+\abovedisplayskip=0pt
+$$
+\phi_{Gd,d}^{-1}(1_{Gd})=1_{Gd}^*=\epsilon_d: FGd \rightarrow d
+$$
+\end{block}
+where $\epsilon_d \in \Mor_{\mathcal{D}}(d,FGd)$, which, when natural in $d$, gives the natural transformation
+\begin{block}{counit natural transformation}
+\abovedisplayskip=0pt
+$$
+\epsilon: FG \Rightarrow 1_{\mathcal{D}}
+$$
+\end{block}
+\end{frame}
+
+\begin{frame}[t]
+We can then give an alternative definition of adjoint functors in terms of the unit natural transformation (dually the counit natural transformation) as
+\begin{align*}
+F & \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G\\
+\eta & \colon 1_{\mathcal{C}} \rightarrow GF
+\end{align*}
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ there exists a unique $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ such that $f = Gg \circ \eta_c$				
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+     \begin{block}{unit conditions for $F \dashv G$}
+		\abovedisplayskip=0pt
+		$$
+					\xymatrix{
+					c \ar[r]^{\eta_c} \ar[dr]_{f} & G F c \ar[d]^{G g} & F c \ar@{.>}[d]^{g}\\
+					& G d & d}
+		$$
+		\end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+		     \begin{block}{adjoint correspondence}
+		\abovedisplayskip=0pt
+		$$
+			\frac{c \rightarrow Gd}{Fc \rightarrow d}
+		$$
+		\end{block}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+We can then give an alternative definition of adjoint functors in terms of the counit natural transformation (dually the unit natural transformation) as
+$$
+F \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G
+$$
+$$
+\epsilon \colon FG \rightarrow 1_{\mathcal{C}}
+$$
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ there exists a unique $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ such that $g = \epsilon_D \circ Ff$	
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+\begin{block}{counit conditions for $F \dashv G$}
+$$
+			\xymatrix{
+			& F c \ar[d]^{F f} \ar[dl]_{g} & c \ar@{.>}[d]^{f}\\
+			d & F G d \ar[l]^{\epsilon_d} & G d}
+$$
+\end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+		     \begin{block}{adjoint correspondence}
+		\abovedisplayskip=0pt
+		$$
+			\frac{Fc \rightarrow d}{c \rightarrow Gd}
+		$$
+		\end{block}
+    \end{column}
+\end{columns}
+\end{frame}
+
+\subsection{Hom-tensor adjunction}
+\begin{frame}
+\frametitle{$\Delta \dashv \Pi$ adjunction}
+$$\Delta : \mathcal{C} \rightleftarrows \mathcal{C} \times \mathcal{C}: \Pi$$
+$$\Mor_{\mathcal{C}}(C, \Pi (X,Y)) \cong  \Mor_{\mathcal{C} \times \mathcal{C}}(\Delta C, (X,Y))$$
+			$$
+			\xymatrix{
+			C \ar[r]^{\eta_C} \ar[dr]_{f} & \Pi \Delta C \ar[d]^{\Pi (f_1, f_2)} & \Delta C \ar@{.>}[d]^{(f_1,f_2)}\\
+			& \Pi (X,Y) & (X,Y)}
+			$$
+			$$
+			\xymatrix{
+			C \ar[r]^{\eta_C} \ar[dr]_{\langle f_1, f_2 \rangle} & C \times C \ar[d]^{f_1 \times f_2} & (C,C) \ar@{.>}[d]^{(f_1,f_2)}\\
+			& X \times Y & (X,Y)}
+			$$
+\end{frame}
+
+%\begin{frame}
+%$$
+%\xymatrix{
+%C \ar[rrrd]^{1_C} \ar@{-->}[rrd]_u \ar[rrdd]_{1_C} & & \\
+%& & C \times C \ar[d]_{\pi_1} \ar[r]_{\pi_2} & C \\
+%& & C &
+%}
+%$$
+%$$
+%\xymatrix{
+%C \ar[rrrd]^{f_2} \ar@{-->}[rrd]_f \ar[rrdd]_{f_1} & & \\
+%& & X \times Y \ar[d]_{p_1} \ar[r]_{p_2} & Y \\
+%& & X &
+%}
+%$$
+%\end{frame}
+%
+%\begin{frame}
+%$$
+%\xymatrix{
+%& C \ar[rd]^{1_C} \ar[d]|{\eta_C} \ar[ld]_{1_C} \ar@/_4pc/[ldd]_{f_1} \ar@/^4pc/[rdd]^{f_2} \ar@/_1.7pc/[dd]|(.6){\langle f_1, f_2 \rangle} & \\
+%C \ar[d]_-{f_1} & {\Pi \Delta C} \ar[l]_-{\pi_1} \ar[r]^-{\pi_2} \ar[d]|{\Pi (f_1, f_2) } & C \ar[d]^-{f_2} \\
+%X & {\Pi (X,Y)} \ar[l]_-{p_1} \ar[r]^-{p_2} & Y
+%}
+%$$
+%$$
+%\xymatrix{
+%& C \ar[rd]^{1_C} \ar[d]|{\eta_C} \ar[ld]_{1_C} \ar@/_4pc/[ldd]_{f_1} \ar@/^4pc/[rdd]^{f_2} \ar@/_1.7pc/[dd]|(.6){f} &\\
+%C \ar[d]_-{f_1} & C \times C \ar[l]_-{\pi_1} \ar[r]^-{\pi_2} \ar[d]|{f_1 \times f_2} & C \ar[d]^-{f_2} \\
+%X & X \times Y \ar[l]_-{p_1} \ar[r]^-{p_2} & Y
+%}
+%$$
+%\end{frame}
+%
+%\begin{frame}
+%We want to demonstrate the commutativity of
+%$$
+%\xymatrix{
+%C \ar[rrrd]^{f_2} \ar@{-->}[rrd]_f \ar[rrdd]_{f_1} & & \\
+%& & X \times Y \ar[d]_{p_1} \ar[r]_{p_2} & Y \\
+%& & X &
+%}
+%$$
+%from
+%$$
+%\xymatrix{
+%& C \ar[rd]^{1_C} \ar[d]|{\eta_C} \ar[ld]_{1_C} \ar@/_4pc/[ldd]_{f_1} \ar@/^4pc/[rdd]^{f_2} \ar@/_1.7pc/[dd]|(.6){f} &\\
+%C \ar[d]_-{f_1} & C \times C \ar[l]_-{\pi_1} \ar[r]^-{\pi_2} \ar[d]|{f_1 \times f_2} & C \ar[d]^-{f_2} \\
+%X & X \times Y \ar[l]_-{p_1} \ar[r]^-{p_2} & Y
+%}
+%$$
+%algebraically.
+%\end{frame}
+
+%\begin{frame}
+%\begin{eqnarray*}
+%f_1 \times f_2 \circ \eta_C &=& \langle f_1 \pi_1, f_2 \pi_2 \rangle \eta_C \\
+%			   &=& \langle f_1 \pi_1 \eta_C, f_2 \pi_2 \eta_C \rangle \\
+%			   &=& \langle f_1, f_2 \rangle \\
+%			   &=& f
+%\end{eqnarray*}
+%$$
+%\xymatrix{
+%& C \ar[rd]^{1_C} \ar[d]|{\eta_C} \ar[ld]_{1_C} \ar@/_4pc/[ldd]_{f_1} \ar@/^4pc/[rdd]^{f_2} \ar@/_1.7pc/[dd]|(.6){f} &\\
+%C \ar[d]_-{f_1} & C \times C \ar[l]_-{\pi_1} \ar[r]^-{\pi_2} \ar[d]|{f_1 \times f_2} & C \ar[d]^-{f_2} \\
+%X & X \times Y \ar[l]_-{p_1} \ar[r]^-{p_2} & Y
+%}
+%$$
+%\end{frame}
+%
+%\subsection{specialization to systematicity example}
+%\begin{frame}
+%Now we specialize this construction to the case in which we have the following substitutions\footnote{also, $\eta_{\psi} \equiv \langle 1_{\psi},1_{\psi} \rangle$}
+%\begin{itemize}
+%\item $C \rightarrow \psi$ propositions $\{ JM, MJ, JJ, MM \}$
+%\item $f_1 \rightarrow s$ the subject map
+%\item $f_2 \rightarrow o$ the object map
+%\item $X|Y \rightarrow A$ the set of all possible constituents of internal representations of propositions $\{J, M \}$
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%\begin{eqnarray*}
+%s \times o \circ \eta_\psi &=& \langle s \pi_1, o \pi_2 \rangle \eta_\psi \\
+%			   &=& \langle s \pi_1 \eta_\psi, o \pi_2 \eta_\psi \rangle \\
+%			   &=& \langle s, o \rangle \\
+%\end{eqnarray*}
+%$$
+%\xymatrix{
+%& \psi \ar[rd]^{1_\psi} \ar[d]|{\eta_\psi} \ar[ld]_{1_\psi} \ar@/_4pc/[ldd]_{s} \ar@/^4pc/[rdd]^{o} \ar@/_1.7pc/[dd]|(.65){\langle s, o \rangle} &\\
+%\psi \ar[d]_-{s} & \psi \times \psi \ar[l]_-{\pi_1} \ar[r]^-{\pi_2} \ar[d]|{s \times o} & \psi \ar[d]^-{o} \\
+%A & A \times A \ar[l]_-{p_1} \ar[r]^-{p_2} & A
+%}
+%$$
+%\end{frame}
+%
+%\begin{frame}
+%This implies the commutativity of the diagrams
+%			$$
+%			\xymatrix{
+%			\psi \ar[r]^-{\eta_\psi} \ar[dr]_{\langle s, o \rangle} & \psi \times \psi \ar[d]^{s \times o} & (\psi,\psi) \ar@{.>}[d]^{(s,o)}\\
+%			& A \times A & (A,A)}
+%			$$
+%and
+%			$$
+%			\xymatrix{
+%			\psi \ar[r]^-{\eta_\psi} \ar[dr]_{\langle o, s \rangle} & \psi \times \psi \ar[d]^{o \times s} & (\psi,\psi) \ar@{.>}[d]^{(o,s)}\\
+%			& A \times A & (A,A)}
+%			$$
+%\end{frame}
+%
+%\begin{frame}
+%And it also excludes commutativity of diagrams
+%			$$
+%			\xymatrix{
+%			\psi \ar[r]^-{\eta_\psi} \ar[dr]_{\langle s, o \rangle} & \psi \times \psi \ar[d]^{o \times s} & (\psi,\psi) \ar@{.>}[d]^{(s,o)}\\
+%			& A \times A & (A,A)}
+%			$$
+%and
+%			$$
+%			\xymatrix{
+%			\psi \ar[r]^-{\eta_\psi} \ar[dr]_{\langle o, s \rangle} & \psi \times \psi \ar[d]^{s \times o} & (\psi,\psi) \ar@{.>}[d]^{(o,s)}\\
+%			& A \times A & (A,A)}
+%			$$
+%\end{frame}
+%
+%\begin{frame}
+%We can see this by trying the first allowed and the first unallowed cases on one of the components of $\psi$ \footnote{recall, $\eta_{\psi} \equiv \langle 1_{\psi},1_{\psi} \rangle$ and that the logic of the adjunction is such that given a morphism $\langle s, o \rangle$ there is a unique $(s,o)$ that makes $\langle s, o \rangle = s \times o \circ \eta_{\psi}$}, for example $JM$, which means there's some propositional function $R(JM)$ that we could take to mean $J\,\, R \,\,M \equiv$ John loves Mary so that $R \equiv$ loves.
+%We have the allowed case
+%\begin{eqnarray*}
+%(s \times o) \circ \langle 1_{\psi},1_{\psi} \rangle (JM) &=& (s \times o)(JM,JM)\\
+%&=& (John,Mary)\\
+%&=& \langle s , o \rangle (JM).
+%\end{eqnarray*}
+%And the unallowed case
+%\begin{eqnarray*}
+%(o \times s) \circ \langle 1_{\psi},1_{\psi} \rangle (JM) &=& (s \times o)(JM,JM)\\
+%&=& (Mary,John)\\
+%& \neq & (John,Mary)\\
+%&=& \langle s , o \rangle (JM).
+%\end{eqnarray*}
+%\end{frame}
