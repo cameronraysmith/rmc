@@ -39,7 +39,7 @@
 \abovedisplayskip=0pt
 \begin{align*}
 - \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
-\Mor_{\mathcal{C}}(B \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B, B^{A^B})
+\Mor_{\mathcal{C}}(B^A \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B^A, B^{A^B})
 \end{align*}
 \end{block}
 \begin{columns}[t]
@@ -47,7 +47,7 @@
 \begin{block}{in components}
 			$$
 			\xymatrix{
-			& B \times B \ar[d]^{h \times 1_B} \ar[dl]_{\bar{h}} & B \ar@{.>}[d]^{h}\\
+			& B^A \times B \ar[d]^{h \times 1_B} \ar[dl]_{\bar{h}} & B^A \ar@{.>}[d]^{h}\\
 			B^A & B^{A^B} \times B \ar[l]^{\epsilon_{B^A}} & B^{A^B}}
 			$$
 		\end{block}
@@ -56,7 +56,7 @@
 		\begin{block}{adjoint correspondence}
 		\abovedisplayskip=0pt
 		$$
-			\frac{B \times B \longrightarrow B^A}{B \longrightarrow B^{A^B}}
+			\frac{B^A \times B \longrightarrow B^A}{B^A \longrightarrow B^{A^B}}
 		$$
 		the counit is the evaluation map
 		$$
