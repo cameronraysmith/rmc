@@ -170,13 +170,13 @@ $$
 \begin{block}{}
 \abovedisplayskip=0pt
 \begin{align*}
-- \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A\\
-\Mor_{\mathcal{C}}(X \times A, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^A)
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
 \end{align*}
 \end{block}
 \begin{block}{change notation}
 	\begin{center}
-	Let $\Pi_A = - \times A$ and $E^A = (-)^A$
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
 	\end{center}
 \end{block}
 \begin{columns}[t]
@@ -184,8 +184,8 @@ $$
 		\begin{block}{functors on components}
 			$$
 			\xymatrix{
-			& \Pi_A X \ar[d]^{\Pi_A \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
-			Y & \Pi_A E_A Y \ar[l]^{\epsilon_Y} & E_A Y}
+			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
 			$$
 		\end{block}		
     \end{column}
@@ -193,8 +193,8 @@ $$
 		\begin{block}{in components}
 			$$
 			\xymatrix{
-			& X \times A \ar[d]^{\bar{f} \times 1_A} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
-			Y & Y^A \times A \ar[l]^{\epsilon_Y} & Y^A}
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
 			$$
 		\end{block}
     \end{column}
@@ -206,13 +206,13 @@ $$
 \begin{block}{}
 \abovedisplayskip=0pt
 \begin{align*}
-- \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A\\
-\Mor_{\mathcal{C}}(X \times A, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^A)
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
 \end{align*}
 \end{block}
 \begin{block}{change notation}
 	\begin{center}
-	Let $\Pi_A = - \times A$ and $E^A = (-)^A$
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
 	\end{center}
 \end{block}
 \begin{columns}[t]
@@ -220,8 +220,8 @@ $$
 \begin{block}{in components}
 			$$
 			\xymatrix{
-			& X \times A \ar[d]^{\bar{f} \times 1_A} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
-			Y & Y^A \times A \ar[l]^{\epsilon_Y} & Y^A}
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
 			$$
 		\end{block}
     \end{column}
@@ -229,11 +229,11 @@ $$
 		\begin{block}{adjoint correspondence}
 		\abovedisplayskip=0pt
 		$$
-			\frac{X \times A \longrightarrow Y}{X \longrightarrow Y^A}
+			\frac{X \times Z \longrightarrow Y}{X \longrightarrow Y^Z}
 		$$
 		the counit is the evaluation map
 		$$
-			\epsilon_Y = ev_Y \colon Y^A \times A \longrightarrow Y
+			\epsilon_Y = ev_Y \colon Y^Z \times Z \longrightarrow Y
 		$$
 		\end{block}		
     \end{column}
