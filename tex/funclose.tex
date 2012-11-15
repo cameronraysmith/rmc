@@ -5,33 +5,62 @@
 \abovedisplayskip=0pt
 \begin{align*}
 - \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A\\
-\Mor_{\mathcal{C}}(X \times A, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^A)
+\Mor_{\mathcal{C}}(B \times A, B) & \cong  \Mor_{\mathcal{C}}(B, B^A)
 \end{align*}
 \end{block}
-\begin{block}{change notation}
-	\begin{center}
-	Let $\Pi_A = - \times A$ and $E^A = (-)^A$
-	\end{center}
-\end{block}
 \begin{columns}[t]
-    \begin{column}{0.5\framewidth}
+    \begin{column}{0.5\textwidth}
 \begin{block}{in components}
 			$$
 			\xymatrix{
-			& X \times A \ar[d]^{\bar{f} \times 1_A} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
-			Y & Y^A \times A \ar[l]^{\epsilon_Y} & Y^A}
+			& B \times A \ar[d]^{g \times 1_A} \ar[dl]_{\bar{g}} & B \ar@{.>}[d]^{g}\\
+			B & B^A \times A \ar[l]^{\epsilon_B} & B^A}
 			$$
 		\end{block}
     \end{column}
-    \begin{column}{0.5\framewidth}
+    \begin{column}{0.5\textwidth}
 		\begin{block}{adjoint correspondence}
 		\abovedisplayskip=0pt
 		$$
-			\frac{X \times A \longrightarrow Y}{X \longrightarrow Y^A}
+			\frac{B \times A \longrightarrow B}{B \longrightarrow B^A}
 		$$
 		the counit is the evaluation map
 		$$
-			\epsilon_Y = ev_Y \colon Y^A \times A \longrightarrow Y
+			\epsilon_B = ev_B \colon B^A \times A \longrightarrow B
+		$$
+		\end{block}		
+    \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{$\times \dashv Hom$ adjunction}
+\begin{block}{}
+\abovedisplayskip=0pt
+\begin{align*}
+- \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
+\Mor_{\mathcal{C}}(B \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B, B^{A^B})
+\end{align*}
+\end{block}
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+\begin{block}{in components}
+			$$
+			\xymatrix{
+			& B \times B \ar[d]^{h \times 1_B} \ar[dl]_{\bar{h}} & B \ar@{.>}[d]^{h}\\
+			B^A & B^{A^B} \times B \ar[l]^{\epsilon_{B^A}} & B^{A^B}}
+			$$
+		\end{block}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+		\begin{block}{adjoint correspondence}
+		\abovedisplayskip=0pt
+		$$
+			\frac{B \times B \longrightarrow B^A}{B \longrightarrow B^{A^B}}
+		$$
+		the counit is the evaluation map
+		$$
+			\epsilon_{B^A} = ev_{B^A} \colon B^{A^B} \times B \longrightarrow B^A
 		$$
 		\end{block}		
     \end{column}
