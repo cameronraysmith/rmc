@@ -609,3 +609,171 @@ b_{d} (f_{ij}) &:& \Mor_{\cC^{opp}}(c_i,Gd) \rightarrow \Mor_{\cC^{opp}}(c_j,Gd)
 \iftoggle{thmsty}{
 \end{definition}
 }{}
+
+
+
+
+Let $\mathcal{C}$, $\mathcal{D}$ be categories.
+Let $F : \mathcal{C} \to \mathcal{D}$ and
+$G : \mathcal{D} \to \mathcal{C}$ be functors.
+We say that $F$ is a {\it left adjoint} of $G$ or that
+$G$ is a {\it right adjoint} to $F$, written $F \dashv G$, if there are bijections
+
+$$
+\phi_{c,d}:\Mor_\mathcal{D}(Fc, d)
+\simeq
+\Mor_\mathcal{C}(c, Gd)
+$$
+
+functorial in $c \in \Ob(\mathcal{C})$, and
+$d \in \Ob(\mathcal{D})$.
+
+Morphisms that are associated with each other according to the bijections of an adjunction are called {\it adjoint transposes} of one another. 
+
+There is a correspondence
+
+\abovedisplayskip=0pt
+\begin{align*}
+g &: Fc \rightarrow d, \,\, g \in \Mor(\mathcal{D})\\
+g^* &: c \rightarrow Gd, \,\, g^* \in \Mor(\mathcal{C})
+\end{align*}
+
+given by $\phi_{c,d}(g) = g^*$. 
+Similarly for 
+
+\begin{align*}
+f &: c \rightarrow Gd, \,\, f \in \Mor(\mathcal{C})\\
+f^* &: Fc \rightarrow d, \,\, f^* \in \Mor(\mathcal{D}) 
+\end{align*}
+
+given by $\phi_{c,d}^{-1}(f) = f^*$. 
+We see then that $g^* = f$ and $f^* = g$.
+
+Consider the identity morphism $1_{Fc} \in \Mor_{\mathcal{D}}(Fc,Fc)$. The adjoint transpose of $1_{Fc}$ is the {\it unit} morphism at $c$
+
+$$
+\phi_{c,Fc}(1_{Fc})=1_{Fc}^*=\eta_c: c \rightarrow GFc
+$$
+
+where $\eta_c \in \Mor_{\mathcal{C}}(c,GFc)$, which, when taken to be natural in $c \in \Ob(\mathcal{C})$, gives the natural transformation
+
+$$
+\eta : 1_{\mathcal{C}} \Rightarrow GF
+$$
+
+Consider the identity morphism $1_{Gd} \in \Mor_{\mathcal{C}}(Gd,Gd)$. The adjoint transpose of $1_{Gd}$ is the {\it counit} morphism at $d$
+
+$$
+\phi_{Gd,d}^{-1}(1_{Gd})=1_{Gd}^*=\epsilon_d: FGd \rightarrow d
+$$
+
+where $\epsilon_d \in \Mor_{\mathcal{D}}(d,FGd)$, which, when natural in $d$, gives the natural transformation
+
+$$
+\epsilon: FG \Rightarrow 1_{\mathcal{D}}
+$$
+
+We can then give an alternative definition of adjoint functors in terms of the unit natural transformation (dually the counit natural transformation) as
+\begin{align*}
+F & \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G\\
+\eta & \colon 1_{\mathcal{C}} \rightarrow GF
+\end{align*}
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ there exists a unique $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ such that $f = Gg \circ \eta_c$				
+
+		$$
+					\xymatrix{
+					c \ar[r]^{\eta_c} \ar[dr]_{f} & G F c \ar[d]^{G g} & F c \ar@{.>}[d]^{g}\\
+					& G d & d}
+		$$
+	
+		$$
+			\frac{c \longrightarrow Gd}{Fc \longrightarrow d}
+		$$
+	
+We can then give an alternative definition of adjoint functors in terms of the counit natural transformation (dually the unit natural transformation) as
+$$
+F \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G
+$$
+$$
+\epsilon \colon FG \rightarrow 1_{\mathcal{C}}
+$$
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ there exists a unique $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ such that $g = \epsilon_D \circ Ff$	
+
+$$
+			\xymatrix{
+			& F c \ar[d]^{F f} \ar[dl]_{g} & c \ar@{.>}[d]^{f}\\
+			d & F G d \ar[l]^{\epsilon_d} & G d}
+$$
+
+		$$
+			\frac{Fc \longrightarrow d}{c \longrightarrow Gd}
+		$$
+		
+
+\begin{align*}
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
+\end{align*}
+
+	\begin{center}
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
+	\end{center}
+
+			$$
+			\xymatrix{
+			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
+			$$
+	
+			$$
+			\xymatrix{
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
+			$$
+
+\begin{align*}
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
+\end{align*}
+
+	\begin{center}
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
+	\end{center}
+\
+			$$
+			\xymatrix{
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
+			$$
+
+		$$
+			\frac{X \times Z \longrightarrow Y}{X \longrightarrow Y^Z}
+		$$
+		the counit is the evaluation map
+		$$
+			\epsilon_Y = ev_Y \colon Y^Z \times Z \longrightarrow Y
+		$$
+	
+
+
+\begin{align*}
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
+\end{align*}
+
+	\begin{center}
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
+	\end{center}
+
+			$$
+			\xymatrix{
+			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
+			$$
+		
+			$$
+			\xymatrix{
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
+			$$
+	
