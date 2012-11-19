@@ -239,3 +239,39 @@ $$
     \end{column}
 \end{columns}
 \end{frame}
+
+\begin{frame}[t]
+\frametitle{Exponentiation diagram}
+\begin{block}{}
+\abovedisplayskip=0pt
+\begin{align*}
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
+\end{align*}
+\end{block}
+\begin{block}{change notation}
+	\begin{center}
+	Let $\Pi_Z = - \times Z$ and $E^Z = (-)^Z$
+	\end{center}
+\end{block}
+\begin{columns}[t]
+    \begin{column}{0.5\textwidth}
+		\begin{block}{functors on components}
+			$$
+			\xymatrix{
+			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
+			$$
+		\end{block}		
+    \end{column}
+    \begin{column}{0.5\textwidth}
+		\begin{block}{in components}
+			$$
+			\xymatrix{
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
+			$$
+		\end{block}
+    \end{column}
+\end{columns}
+\end{frame}
