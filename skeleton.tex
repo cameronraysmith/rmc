@@ -1,0 +1,72 @@
+%-----------------------------------------------%
+%             filename: skeleton.tex
+%-----------------------------------------------%
+\documentclass[aps,twocolumn]{revtex4-1}
+\usepackage{graphicx}
+\usepackage{ifpdf}
+\ifpdf
+	\usepackage[backref]{hyperref}
+	%\usepackage[backref,pageanchor=true,plainpages=false, pdfpagelabels,bookmarks,bookmarksnumbered]	{hyperref}
+\else
+\fi
+
+\usepackage{crs}
+
+% see http://goo.gl/5Fo27
+\newtoggle{thmsty}
+%\toggletrue{thmsty}
+\togglefalse{thmsty}
+
+% see http://goo.gl/7jLZ9
+\makeatletter
+\newlength \figwidth
+\if@twocolumn
+  \setlength \figwidth {0.8\columnwidth}
+\else
+  \setlength \figwidth {0.5\textwidth}
+\fi
+\makeatother
+
+\begin{document} 
+
+\title{\bf Functional closure in biomolecular systems}
+
+\author{a1$^{1}$, a2$^{1}$, a3$^{1}$, a4$^{1,2,3}$}
+
+\affiliation{$^1$Department of Systems and Computational Biology,\\ $^2$Dominick P. Purpura Department of Neuroscience, \\ $^3$Department of Pathology, Albert Einstein College of Medicine, 1301 Morris Park Ave, Bronx, NY 10461, USA}
+
+\date{\today}
+\begin{abstract}
+Hierarchy is a fundamental organizing concept in biology. The existence of a number of apparently discrete levels of organization including molecules, cells, organisms, populations, communities, ecosystems, and more fine-grained levels below, above and in between these are taken for granted. Theoretical constructs capable of integrating information about such levels of organization and of explaining the emergence of such levels in the evolutionary process have not been adapted to a biological context. Here we make use of existing theory to characterize coherence constraints that must ostensibly be satisfied in any evolutionary process in which two levels of organization become coupled such that one serves as a base supporting interactions among higher-level entities in another. In this way, what may be considered as two distinct levels may come to be viewed as part of a unified system. This process of unification of distinct levels may serve as a basis for induction in the consideration of arbitrarily complex compositions of multilevel biological systems. The language we use to express these constraints is sufficiently general that it applies equally to several different concrete formalisms for representing biological systems, for example those that have become commonplace in the context of network science, in terms of algebraic graphs, hypergraphs, or (cell) complexes. The derived relationship constraining the synthesis of levels of organization in models of biological systems can be used to provide boundary conditions for dynamical models defined in terms of transformations of graphs or any other concrete relational structure that seek to take into account hierarchical transitions in evolutionary processes.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+\section{Reasoning about emergent properties of biological systems}
+
+The development of a formal language for modeling and reasoning about biological systems was suggested by Joseph Woodger in collaboration with the developmental biologist Conrad Waddington and the logician Alfred Tarski as early as 1937 \cite{Woodger1937,Woodger1951,Woodger1952,Woodger1952a}. At that time it was perhaps difficult to understand how such a language could be put to use. Today we have tools that could enable the use of such a language: namely 1) computational machines to automate the details of routine transformations within the language and 2) accessible, growing repositories of biological data. Though we have access to necessary infrastructure, we lack such a language suggested by Woodger and others throughout the course of the 20th century as we have continued to rely on natural language heuristics to communicate and reason about biological systems.
+
+\section{Conclusion}
+
+The goal of organizing knowledge about biological systems will ultimately require the development of languages that can be tailored specifically for that task. The purpose of developing such a language is to provide a precise framework for a qualitative phenomenology of biological systems such that, any piece of data that can be collected, can be integrated and used to deduce apparent consequences that in some sense attempt to optimize the production of new or classification of old hypotheses that may be distinguished on that basis. Despite the fact that abstract concepts from pure mathematics have had little explicit coupling to the study of biological systems so far, we find that certain concepts can be adapted to serve as a basis for the development of such a domain-specific language for reasoning about biological systems. In order to realize such a goal, this language will need to be implemented in computational form rather than simply stated in abstract notation; however, clarification of the relationship between purely abstract concepts and concepts abstracted from the study of biological systems can help to make the costly choice of a framework to be implemented for the purposes of knowledge representation.
+
+%------bibliography---%
+\bibliographystyle{unsrt} 
+\bibliography{bib/books,bib/papers}
+%---------------------%
+
+
+%-----------------------------------------------%
+%                   appendix
+%-----------------------------------------------%
+\appendix
+
+\section{Category theory}\label{app:CatTh}
+\input{tex/catth.tex}
+
+%\section{Sieves and sheaves}\label{Sheaves}
+%\input{sec/sievesheaf.tex}
+
+\end{document}
