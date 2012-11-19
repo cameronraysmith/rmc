@@ -78,7 +78,7 @@ The first thing we will use in order to build a categorical representation of a 
 
 As a first approximation, we can think of both objects as sets, where $A$ represents the input metabolites and $B$  products of metabolic transformations. This is a first order abstraction of a living system that could be further developed in the light of considering those sets as graphs. We can define all \textbf{metabolisms} together as the set of all the different morphisms between these objects referred to as $Hom(A,B)$ or $B^A$.
 
-The finite nature of living systems imposes several constrains regarding the reposition or repair of the components that constitute it. So, as metabolic enzymes decay they must be repaired, from the metabolic products, or the system comprised of them will disintegrate. Besides, environmental fluctuations in $A$ have to be corrected by the differential availability and performance of the metabolic function. Hence, there must be a collection of morphisms from $B$ to $Hom(A,B)$ which can be identified with a \textbf{repair} system. So we have:
+The finite nature of living systems imposes several constrains regarding the reposition or repair of the components that constitute it. So, as metabolic enzymes decay they must be regenerated, from the metabolic products, or the system comprised of them will disintegrate. Besides, environmental fluctuations in $A$ have to be corrected by the differential availability and performance of the metabolic function. Hence, there must be a collection of morphisms from $B$ to $Hom(A,B)$ which can be identified with a \textbf{repair} system. So we have:
 
 
 \begin{center}
@@ -92,7 +92,13 @@ The finite nature of living systems imposes several constrains regarding the rep
  The repair system itself or $g \in B^{A^B}$ also has a finite lifetime and needs to be {\it repaired} by some other system. 
 This argument appears to fall into infinite regress (\textbf{Figure 1}), but a detailed analysis shows that a \textbf{replication} function that closes the system to efficient causation is implicit.
 
-Now let us consider that the category $\mathcal{L}$ is concrete and has products. In order for  $\mathcal{L}$  to be  functionally closed every morphism must be in turn or represented by an object of the category. The existence of so-called {\it exponential objects} is associated with a special evaluation mappings:
+\begin{figure}
+\noindent\includegraphics[width=0.45\columnwidth]{fig/mrcatinf.pdf}
+\caption{Diagram showing the infinite stack of morphisms that apparently, would be needed to close the category}
+\label{fig:hom}
+\end{figure}
+
+Now let us consider that the category $\mathcal{L}$ is concrete and has products. In order for  $\mathcal{L}$  to be functionally closed every morphism must be represented by or be in turn an object of the category. Hence, the existence of so-called {\it exponential objects} inside the category is associated with special evaluation mappings:
 
 \begin{align*}
 e_f : B^A \times A &\longrightarrow B\\
@@ -104,30 +110,32 @@ e_f : B^A \times A &\longrightarrow B\\
 	    			            (g,b) & \longmapsto    g(b)
 			\end{align*}		
 
-We can functionally close the system via the \textbf{replication} map:
+If we follow the argument of regenerating the repair system we can functionally close the system via the \textbf{replication} map:
 \begin{align*}
 R: B^A & \longrightarrow B^{A^B}\\
 f & \longmapsto R(f)
 \end{align*}	
-		
-A set of \textbf{boundary conditions} must be satisfied in order to achieve closure.
+
+So, a set of \textbf{boundary conditions} must be satisfied in order to achieve closure.
 			\begin{align*}
 			f(a) &= b : B\\
 			g(b) &= f : B^A\\
 			R(f) &= g : B^{A^B}
 			\end{align*}
-\begin{center}
 
-		$$	\xymatrix@1{
-			A \ar[r]^{B^A}="ba" & B \ar@(r,ur)_(.5) {B^{A^B}} [];"ba"}$$
-\end{center}
-			
-					
-\begin{figure}
-\noindent\includegraphics[width=0.45\columnwidth]{fig/mrcatinf.pdf}
-\caption{Diagram showing the infinite stack of morphisms that apparently, would be needed to close the category}
-\label{fig:hom}
-\end{figure}
+With all the components already present, now we will justify the functional closure. We can take the system as described and develop all the exponentiations of its maps and represent all the evaluation functions of its exponential objects:		
+
+$$
+			\xymatrix{
+			 ... & ... & ... \\
+			  B^{A^{B^A}} \times A \ar[r]_-{\epsilon} \ar[u]^-{..^A} & B^{A^B} \ar[u]^-{..} & B^{A^{B^B}} \times B\ar[l]^-{\epsilon}\ar[u]^-{..^B} \\
+			 B^{A^A} \times A \ar[r]_-{\epsilon} \ar[u]^-{r^A} & B^A \ar[u]^-{r} & B^{A^B} \times B\ar[l]^-{\epsilon}\ar[u]^-{r^B} \\
+			B^A \times A \ar[r]_-{\epsilon} \ar[u]^-{g^A} & B \ar[u]^-{g} & B^B \times B\ar[l]^-{\epsilon}\ar[u]^-{g^B} \\
+			A^A \times A \ar[r]_-{\epsilon} \ar[u]^-{f^A} & 
+			A\ar[u]^-{f} & A^B\times B\ar[l]^-{\epsilon}\ar[u]^-{f^B} }
+			$$
+
+As it can be observed, once you reach the second level of exponentiation the system is already closed, and the higher level exponential objects can be reduced to lower level morphisms. The very same feature can be explained in terms of the $\times \dashv Hom$ adjunction. 
 
 
 \begin{align*}
@@ -261,16 +269,6 @@ A set of \textbf{boundary conditions} must be satisfied in order to achieve clos
 	
 
 
-
-$$
-			\xymatrix{
-			 LOL &LoL &Sublol \\
-			  B^{A^{B^A}} \times A \ar[r]_-{\epsilon} \ar[u]^-{..^A} & B^{A^B} \ar[u]^-{..} & B^{A^{B^B}} \times B\ar[l]^-{\epsilon}\ar[u]^-{..^B} \\
-			 B^{A^A} \times A \ar[r]_-{\epsilon} \ar[u]^-{r^A} & B^A \ar[u]^-{r} & B^{A^B} \times B\ar[l]^-{\epsilon}\ar[u]^-{r^B} \\
-			B^A \times A \ar[r]_-{\epsilon} \ar[u]^-{g^A} & B \ar[u]^-{g} & B^B \times B\ar[l]^-{\epsilon}\ar[u]^-{g^B} \\
-			A^A \times A \ar[r]_-{\epsilon} \ar[u]^-{f^A} & 
-			A\ar[u]^-{f} & A^B\times B\ar[l]^-{\epsilon}\ar[u]^-{f^B} }
-			$$
 
 
 	
