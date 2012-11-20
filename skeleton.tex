@@ -135,13 +135,14 @@ $$
 			A\ar[u]^-{f} & A^B\times B\ar[l]^-{\epsilon}\ar[u]^-{f^B} }
 			$$
 
-As it can be observed, once you reach the second level of exponentiation the system is already closed, and the higher level exponential objects can be reduced to lower level morphisms. The very same feature can be explained in terms of the $\times \dashv Hom$ adjunction. 
-
+As it can be observed, once you reach the second level of exponentiation, the system is already closed, and the higher level exponential objects can be reduced to lower level morphisms. The very same feature can be explained in terms of the $\times \dashv Hom$ adjunction. This is the relationship between the product functor of a category into itself and the exponentiation functor of a category into itself:
 
 \begin{align*}
 - \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A\\
 \Mor_{\mathcal{C}}(B \times A, B) & \cong  \Mor_{\mathcal{C}}(B, B^A)
 \end{align*}
+
+The adjunction can be specified by the bijection, thus obtaining the repair map as the exponential transpose:
 
 			$$
 			\xymatrix{
@@ -152,16 +153,26 @@ As it can be observed, once you reach the second level of exponentiation the sys
 		$$
 			\frac{B \times A \longrightarrow B}{B \longrightarrow B^A}
 		$$
-		the counit is the evaluation map
+where the counit is the evaluation map
 		$$
 			\epsilon_B = ev_B \colon B^A \times A \longrightarrow B
 		$$
-	
+We can make the adjunction, by $A$, concrete on $B^A$:
+
 \begin{align*}
 - \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A\\
 \Mor_{\mathcal{C}}(B^A \times A, B) & \cong  \Mor_{\mathcal{C}}(B^A, B^A)
 \end{align*}
 
+	$$
+			\frac{B^A \times A \longrightarrow B}{B^A \longrightarrow B^A}
+		$$
+				$$
+			\xymatrix{
+			& B^A \times A \ar[d]^{1_{B^A} \times 1_A} \ar[dl]_{\overline{1_{B^A}}} & B^A \ar@{.>}[d]^{1_{B^A}}\\
+			B & B^A \times A \ar[l]^-{\overline{1_{B^A}}} & B^A}
+			$$
+We will use functor notation to denote the product functor with $\Pi_{Ob}$ and the exponentiation product with $E_{ob}$, thus we can rewrite the bijection
 		$$
 			\frac{ \Pi_A B^A \longrightarrow B}{B^A \longrightarrow E_A B}
 		$$
@@ -172,16 +183,8 @@ As it can be observed, once you reach the second level of exponentiation the sys
 			B & \Pi_A E_A B \ar[l]^-{\epsilon} & E_A B}
 			$$
 	
-		$$
-			\frac{B^A \times A \longrightarrow B}{B^A \longrightarrow B^A}
-		$$
-		
-			$$
-			\xymatrix{
-			& B^A \times A \ar[d]^{1_{B^A} \times 1_A} \ar[dl]_{\overline{1_{B^A}}} & B^A \ar@{.>}[d]^{1_{B^A}}\\
-			B & B^A \times A \ar[l]^-{\overline{1_{B^A}}} & B^A}
-			$$
-
+If we repeat the process exponentiating by $B$, we get the repair map:	
+	
 \begin{align*}
 - \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
 \Mor_{\mathcal{C}}(B^A \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B^A, B^{A^B})
@@ -199,6 +202,7 @@ As it can be observed, once you reach the second level of exponentiation the sys
 		$$
 			\epsilon_{B^A} = ev_{B^A} \colon B^{A^B} \times B \longrightarrow B^A
 		$$
+Taking as object $B^A$:
 
 \begin{align*}
 - \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
@@ -214,7 +218,7 @@ As it can be observed, once you reach the second level of exponentiation the sys
 			& \Pi_B B^{A^B} \ar[d]^{\Pi_B \bar{\epsilon}} \ar[dl]_{\epsilon} & B^{A^B} \ar@{.>}[d]^{\bar{\epsilon}}\\
 			B^A & \Pi_B E_B B^A \ar[l]^-{\epsilon} & E_B B^A}
 			$$
-
+In functor notation:
 		$$
 			\frac{B^{A^B} \times B \longrightarrow B^A}{B^{A^B} \longrightarrow B^{A^B}}
 		$$
@@ -224,6 +228,7 @@ As it can be observed, once you reach the second level of exponentiation the sys
 			& B^{A^B} \times B \ar[d]^{1_{B^{A^B}} \times 1_B} \ar[dl]_{\overline{1_{B^{A^B}}}} & B^{A^B} \ar@{.>}[d]^{1_{B^{A^B}}}\\
 			B^A & B^{A^B} \times B \ar[l]^-{\overline{1_{B^{A^B}}}} & B^{A^B}}
 			$$
+Recapitulating, we can get closure at the first level by the following set of bijections:
 			
 						\begin{prooftree}
 				\AxiomC{$B^{A^B} \times B \longrightarrow B^A$}
@@ -233,7 +238,8 @@ As it can be observed, once you reach the second level of exponentiation the sys
 				\UnaryInfC{$B \longrightarrow B^A \longrightarrow B^{A^B}$}
 				\UnaryInfC{$B \longrightarrow B^{A^B}$}
 				\end{prooftree}
-				
+However, if we want to place the biological metaphor in the proper place, we can achive the same at the second level and thus obtain a closed system such as the M.R-System:
+			
 	\begin{prooftree}
 				\AxiomC{$B^A \times A \longrightarrow B$}
 				\UnaryInfC{$B^A \longrightarrow B^A$}
@@ -242,10 +248,7 @@ As it can be observed, once you reach the second level of exponentiation the sys
 				\UnaryInfC{$A \longrightarrow B^A$}
 				\end{prooftree}
 
-		
-	\begin{center}
-		\includegraphics[width=0.4\textwidth]{fig/mrcatinf.pdf}
-	\end{center}
+Closing the system by:
 
 \begin{align*}
 - \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
@@ -269,7 +272,7 @@ As it can be observed, once you reach the second level of exponentiation the sys
 	
 
 
-
+BASCOMPTE!!!!!!!!
 
 	
 \section{Evolutionary perspectives}
