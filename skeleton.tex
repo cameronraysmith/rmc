@@ -76,6 +76,216 @@ It is not the objective of this work to give a detailed and more formal expositi
 
 To be defined in this section: elemental category theory concepts, adjunction and stuff
 
+
+\iftoggle{thmsty}{
+\begin{definition}
+\label{definition-category}
+}{}
+A {\it category} $\mathcal{C}$ is:
+\begin{enumerate}
+\item A set of objects $\Ob(\mathcal{C})$.
+\item For each pair $x, y \in \Ob(\mathcal{C})$ a set of morphisms
+$\Mor_\mathcal{C}(x, y)$.
+\item For each triple $x, y, z\in \Ob(\mathcal{C})$ a composition
+map $ \Mor_\mathcal{C}(y, z) \times \Mor_\mathcal{C}(x, y)
+\to \Mor_\mathcal{C}(x, z) $, denoted $(\phi, \psi) \mapsto
+\phi \circ \psi$.
+\end{enumerate}
+Such that these constraints are satisfied:
+\begin{enumerate}
+\item For every element $x\in \Ob(\mathcal{C})$ there exists a
+morphism $\text{id}_x\in \Mor_\mathcal{C}(x, x)$ such that
+$\text{id}_x \circ \phi = \phi$ and $\psi \circ \text{id}_x = \psi $.
+\item Composition is associative, i.e., $(\phi \circ \psi) \circ \chi =
+\phi \circ ( \psi \circ \chi)$.
+\end{enumerate}
+\iftoggle{thmsty}{
+\end{definition}
+}
+
+\iftoggle{thmsty}{
+\begin{definition}
+\label{definition-functor}
+}{}
+A {\it functor} $F : \mathcal{A} \to \mathcal{B}$
+between two categories $\mathcal{A}, \mathcal{B}$ is:
+\begin{enumerate}
+\item A map $F : \Ob(\mathcal{A}) \to \Ob(\mathcal{B})$.
+\item For every $x, y \in \Ob(\mathcal{A})$ a map
+$F : \Mor_\mathcal{A}(x, y) \to \Mor_\mathcal{B}(F(x), F(y))$,
+denoted $\phi \mapsto F(\phi)$.
+\end{enumerate}
+These data should be compatible with composition and identity morphisms
+in the following manner: $F(\phi \circ \psi) =
+F(\phi) \circ F(\psi)$ for a composable pair $(\phi, \psi)$ of
+morphisms of $\mathcal{A}$ and $F(\text{id}_x) = \text{id}_{F(x)}$.
+\iftoggle{thmsty}{
+\end{definition}
+}
+
+\iftoggle{thmsty}{
+\begin{definition}
+\label{definition-products}
+}{}
+
+Let $x, y\in \Ob(\mathcal{C})$,
+A {\it product} of $x$ and $y$ is
+an object $x \times y \in \Ob(\mathcal{C})$
+together with morphisms
+$p\in \Mor_{\mathcal C}(x \times y, x)$ and
+$q\in\Mor_{\mathcal C}(x \times y, y)$ such
+that the following universal property holds: for
+any $w\in \Ob(\mathcal{C})$ and morphisms
+$\alpha \in \Mor_{\mathcal C}(w, x)$ and
+$\beta \in \Mor_\mathcal{C}(w, y)$
+there is a unique
+$\gamma\in \Mor_{\mathcal C}(w, x \times y)$ making
+the diagram
+$$
+\xymatrix{
+w \ar[rrrd]^\beta \ar@{-->}[rrd]_\gamma \ar[rrdd]_\alpha & & \\
+& & x \times y \ar[d]_p \ar[r]_q & y \\
+& & x &
+}
+$$
+commute.
+\iftoggle{thmsty}{
+\end{definition}
+}
+
+\iftoggle{thmsty}{
+\begin{definition}
+\label{definition-has-products-of-pairs}
+}{}
+We say the category $\mathcal{C}$ {\it has products of pairs
+of objects} if a product $x \times y$
+exists for any $x, y \in \Ob(\mathcal{C})$.
+\iftoggle{thmsty}{
+\end{definition}
+}
+
+Let $\mathcal{C}$, $\mathcal{D}$ be categories.
+Let $F : \mathcal{C} \to \mathcal{D}$ and
+$G : \mathcal{D} \to \mathcal{C}$ be functors.
+We say that $F$ is a {\it left adjoint} of $G$ or that
+$G$ is a {\it right adjoint} to $F$, written $F \dashv G$, if there are bijections
+
+$$
+\phi_{c,d}:\Mor_\mathcal{D}(Fc, d)
+\simeq
+\Mor_\mathcal{C}(c, Gd)
+$$
+
+functorial in $c \in \Ob(\mathcal{C})$, and
+$d \in \Ob(\mathcal{D})$.
+
+Morphisms that are associated with each other according to the bijections of an adjunction are called {\it adjoint transposes} of one another. 
+
+There is a correspondence
+
+\abovedisplayskip=0pt
+\begin{align*}
+g &: Fc \rightarrow d, \,\, g \in \Mor(\mathcal{D})\\
+g^* &: c \rightarrow Gd, \,\, g^* \in \Mor(\mathcal{C})
+\end{align*}
+
+given by $\phi_{c,d}(g) = g^*$. 
+Similarly for 
+
+\begin{align*}
+f &: c \rightarrow Gd, \,\, f \in \Mor(\mathcal{C})\\
+f^* &: Fc \rightarrow d, \,\, f^* \in \Mor(\mathcal{D}) 
+\end{align*}
+
+given by $\phi_{c,d}^{-1}(f) = f^*$. 
+We see then that $g^* = f$ and $f^* = g$.
+
+Consider the identity morphism $1_{Fc} \in \Mor_{\mathcal{D}}(Fc,Fc)$. The adjoint transpose of $1_{Fc}$ is the {\it unit} morphism at $c$
+
+$$
+\phi_{c,Fc}(1_{Fc})=1_{Fc}^*=\eta_c: c \rightarrow GFc
+$$
+
+where $\eta_c \in \Mor_{\mathcal{C}}(c,GFc)$, which, when taken to be natural in $c \in \Ob(\mathcal{C})$, gives the natural transformation
+
+$$
+\eta : 1_{\mathcal{C}} \Rightarrow GF
+$$
+
+Consider the identity morphism $1_{Gd} \in \Mor_{\mathcal{C}}(Gd,Gd)$. The adjoint transpose of $1_{Gd}$ is the {\it counit} morphism at $d$
+
+$$
+\phi_{Gd,d}^{-1}(1_{Gd})=1_{Gd}^*=\epsilon_d: FGd \rightarrow d
+$$
+
+where $\epsilon_d \in \Mor_{\mathcal{D}}(d,FGd)$, which, when natural in $d$, gives the natural transformation
+
+$$
+\epsilon: FG \Rightarrow 1_{\mathcal{D}}
+$$
+
+We can then give an alternative definition of adjoint functors in terms of the unit natural transformation (dually the counit natural transformation) as
+\begin{align*}
+F & \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G\\
+\eta & \colon 1_{\mathcal{C}} \rightarrow GF
+\end{align*}
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ there exists a unique $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ such that $f = Gg \circ \eta_c$				
+
+		$$
+					\xymatrix{
+					c \ar[r]^{\eta_c} \ar[dr]_{f} & G F c \ar[d]^{G g} & F c \ar@{.>}[d]^{g}\\
+					& G d & d}
+		$$
+	
+		$$
+			\frac{c \longrightarrow Gd}{Fc \longrightarrow d}
+		$$
+	
+We can then give an alternative definition of adjoint functors in terms of the counit natural transformation (dually the unit natural transformation) as
+$$
+F \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G
+$$
+$$
+\epsilon \colon FG \rightarrow 1_{\mathcal{C}}
+$$
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ there exists a unique $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ such that $g = \epsilon_D \circ Ff$	
+
+$$
+			\xymatrix{
+			& F c \ar[d]^{F f} \ar[dl]_{g} & c \ar@{.>}[d]^{f}\\
+			d & F G d \ar[l]^{\epsilon_d} & G d}
+$$
+
+		$$
+			\frac{Fc \longrightarrow d}{c \longrightarrow Gd}
+		$$
+		
+An adjunction relevant to our discussion is the one existing between the product functor of a category into itself and the exponentiation functor of a category into itself. The hom-tensor adjunction, denoted $\times \dashv Hom$ is defined as:
+		
+		\begin{align*}
+- \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
+\Mor_{\mathcal{C}}(X \times Z, Y) & \cong  \Mor_{\mathcal{C}}(X, Y^Z)
+\end{align*}
+
+The bijection mediated by the evaluation map can be specified by the following diagram:
+
+			$$
+			\xymatrix{
+			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
+			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
+			$$
+
+		$$
+			\frac{X \times Z \longrightarrow Y}{X \longrightarrow Y^Z}
+		$$
+		
+The counit of the adjunction is the evaluation map:
+
+		$$
+			\epsilon_Y = ev_Y \colon Y^Z \times Z \longrightarrow Y
+		$$
+	
+	
 \section{Functional closure}
 
 In this section, we will make a clear exposition of the categorical modelling relationship of a functionally closed living system. We will review succinctly Rosen's M,R-systems and hopefully go beyond concreting a categorical model of a living system inspired in our biosphere.
@@ -143,7 +353,8 @@ $$
 			A\ar[u]^-{f} & A^B\times B\ar[l]^-{\epsilon}\ar[u]^-{f^B} }
 			$$
 
-As it can be observed, once you reach the second level of exponentiation, the system is already closed, and the higher level exponential objects can be reduced to lower level morphisms. The very same feature can be explained in terms of the $\times \dashv Hom$ adjunction (see the appendix). This is the relationship between the product functor of a category into itself and the exponentiation functor of a category into itself:
+As it can be observed, once you reach the second level of exponentiation, the system is already closed, and the higher level exponential objects can be reduced to lower level morphisms. The very same feature can be explained in terms of the $\times \dashv Hom$ adjunction (see the appendix). 
+
 \begin{align*}
 - \times A: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^A
 \end{align*}
@@ -241,7 +452,6 @@ Closing the system by:
 			B^{A^B} & B^{A^{B^B}} \times B \ar[l]^{\epsilon} & B^{A^{B^B}}
 			}
 			$$
-	
 		$$
 			\frac{B^{A^B} \times B \longrightarrow B^{A^B}}{B^{A^B} \longrightarrow B^{A^{B^B}}}
 		$$
