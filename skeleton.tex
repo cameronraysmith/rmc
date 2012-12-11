@@ -32,13 +32,13 @@
 
 \title{\bf Functional closure in biomolecular systems}
 
-\author{Pechuan X. $^{1}$, Smith C. $^{1}$, BASCOMPTE .J $^{1}$, Bergman A. $^{1,2,3}$}
+\author{a1$^{1}$, a2$^{1}$, a3$^{1}$, a4$^{1,2,3}$}
 
 \affiliation{$^1$Department of Systems and Computational Biology,\\ $^2$Dominick P. Purpura Department of Neuroscience, \\ $^3$Department of Pathology, Albert Einstein College of Medicine, 1301 Morris Park Ave, Bronx, NY 10461, USA}
 
 \date{\today}
 \begin{abstract}
-Hierarchy is a fundamental organizing concept in biology. The existence of a number of apparently discrete levels of organization including molecules, cells, organisms, populations, communities, ecosystems, and more fine-grained levels below, above and in between these are taken for granted. Theoretical constructs capable of integrating information about such levels of organization and of explaining the emergence of such levels in the evolutionary process have not been adapted to a biological context. Here we make use of existing theory to characterize coherence constraints that must ostensibly be satisfied in any evolutionary process in which two levels of organization become coupled such that one serves as a base supporting interactions among higher-level entities in another. In this way, what may be considered as two distinct levels may come to be viewed as part of a unified system. This process of unification of distinct levels may serve as a basis for induction in the consideration of arbitrarily complex compositions of multilevel biological systems. The language we use to express these constraints is sufficiently general that it applies equally to several different concrete formalisms for representing biological systems, for example those that have become commonplace in the context of network science, in terms of algebraic graphs, hypergraphs, or (cell) complexes. The derived relationship constraining the synthesis of levels of organization in models of biological systems can be used to provide boundary conditions for dynamical models defined in terms of transformations of graphs or any other concrete relational structure that seek to take into account hierarchical transitions in evolutionary processes.
+The abstract characterization of essential features of biological systems is necessary in order to formalize corresponding essential features of evolutionary processes. Such a characterization will support recognition of the pattern associated to the variety of particular ways in which biological systems may be realized. All such realizations, regardless of the degree of diversity exhibited in their structure, may then be related by the fact that they all instantiate a common functional form. Here we propose, in relation to previous work, such a characterization whose primary conceptual aspect is that of {\it functional closure}. In this framework any non-equilibrium system may be viewed as being supported by a material flux from which it extracts energy in the process of its self-organization, but a biological system must also achieve the capacity to generate all necessary transformations to render its periodic structure stable. Only in the latter case will biological systems exhibit the dynamic fluctuations in their structure that we observe in the context of development and replication while maintaining a long-term stability that enables them to persist long enough to be observed on macroscopic timescales thereby supporting the existence of what we observe in the context of evolution.
 \end{abstract}
 
 \maketitle
@@ -64,11 +64,13 @@ As a mere instance to show the power of category theory organizing ideas, it cou
 Evolution requires the production of an offspring with certain error or variability, hence an evolvable system has to comprise both capabilities in order to persist in time.  This variability has to be inherited. Previously it has been shown that we can recover reproduction as a particular case of autopoiesis thus we will just consider variability as the property that has to be closed to efficient causation so as to to consider evolutionary closure. In order to achieve a proper conceptualization, we need to define what we understand by this closure to the inheritance of variants. 
 
 
-Let us take the previously autonomous system considered, the prion which is autonomously replicating....is it autonomously evolving? not unless the prion can produce a variable offspring 
-
-$$ \xymatrix{
-			 Self-replicating & Self-evolving \ar[l]^-{Cell}\\
-			 Parasite-evolving \ar[u]^-{Prion*} & Parsite-replicating \ar[l]^-{Protein}\ar[u]^-{Virus} \\} $$
+Let us take the previously autonomous system considered, the prion which is autonomously replicating....is it autonomously evolving? not unless the prion can produce a variable offspring
+\begin{displaymath}
+\xymatrix{
+Self-replicating & Self-evolving \ar[l]^-{Cell}\\
+Parasite-evolving \ar[u]^-{Prion*} & Parasite-replicating \ar[l]^-{Protein}\ar[u]^-{Virus}
+}
+\end{displaymath}
 			  
 \section{A scent of category theory}
 
@@ -459,11 +461,6 @@ Closing the system by:
 		$$
 			\epsilon = ev_{B^{A^B}} \colon B^{A^{B^B}} \times B \longrightarrow B^{A^B}
 		$$
-	
-
-
-BASCOMPTE!!!!!!!!
-
 	
 \section{Evolutionary perspectives}
 
