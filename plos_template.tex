@@ -52,6 +52,11 @@
 %rotate text in table http://goo.gl/Lb4Zd
 \usepackage{rotating}
 
+% todo notes see http://www.texample.net/tikz/examples/todo-notes/
+\usepackage[colorinlistoftodos]{todonotes}
+% for comments
+\usepackage{verbatim}
+% personal package
 \usepackage{crs}
 % Use the PLoS provided bibtex style
 \bibliographystyle{plos2009}
@@ -96,6 +101,8 @@ Author3$^{3,\ast}$
 $\ast$ E-mail: Corresponding author@institute.edu
 \end{flushleft}
 
+\listoftodos
+
 % Please keep the abstract between 250 and 300 words
 \section*{Abstract}
 
@@ -104,8 +111,10 @@ $\ast$ E-mail: Corresponding author@institute.edu
 % Author Summary not valid for PLoS ONE submissions.   
 \section*{Author Summary}
 
+\input{tex/todonoteinstructions}
+
 \section*{Introduction}
-Evolution is arguably the most fundamental organizing concept in biology. In order to understand biological systems, it will be necessary to address the question: What are the necessary enabling conditions that make biological evolution possible? The synthesis of some potential answers to this question may clarify a path toward defining a sufficient collection of preconditions for evolutionary processes to take flight.
+Evolution is arguably the most fundamental organizing concept in biology. In order to understand biological systems, it will be necessary to address the question: that make biological evolution possible? The synthesis of some potential answers to this question may clarify a path toward defining a sufficient collection of preconditions for evolutionary processes to take flight.
 
 Here we argue that one such necessary precondition for evolution is what we refer to as \emph{functional closure}. In order to define this term and its context, we begin with a diagrammatic model of a prototypical biochemical reaction network that has been claimed to possess this property. We then ask: Is there a formal language capable of expressing this property? A brief detour is necessary to motivate this question. In computer science, there is a property of languages called \emph{expressive power} that is used both heuristically and formally to rank order models of computation, programming languages, and their associated logics with respect to one another and with respect to so-called \emph{natural language}. Roughly speaking, an increased level of expressive power of a language correlates with its ability to express more complex or sophisticated ideas. One might ask why it is not always desirable to work within the extant language containing the highest possible expressive power. One reason to consider less expressive languages at all is that important questions about them can be answered algorithmically with appropriate computer hardware and software in a practical amount of time and memory, whereas the same questions posed of languages with more expressive power are known not to be able to be answered by such means.
 
@@ -117,10 +126,10 @@ This circularity seems to suggest that in order to address the second question r
 
 % Results and Discussion can be combined.
 \section*{Functional closure in biological terms}
-\input{tex/funcloseinvar}
+\subsection*{Functional closure as an invariant property of evolvable systems}
 
 \section*{Functional closure in abstract terms}
-
+\input{tex/funcloseinvar}
 
 \section*{Discussion}
 

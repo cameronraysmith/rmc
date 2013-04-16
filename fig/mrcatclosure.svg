@@ -10,8 +10,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="213.75"
-   height="224.28024"
+   width="213.71875"
+   height="215.89864"
    id="svg3124"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
@@ -24,8 +24,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.7711258"
-     inkscape:cx="152.65557"
-     inkscape:cy="94.629792"
+     inkscape:cx="152.63733"
+     inkscape:cy="98.84349"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -39,15 +39,16 @@
     <marker
        inkscape:stockid="Arrow1Mend"
        orient="auto"
-       refY="0.0"
-       refX="0.0"
+       refY="0"
+       refX="0"
        id="Arrow1Mend"
-       style="overflow:visible;">
+       style="overflow:visible">
       <path
          id="path8647"
-         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
-         transform="scale(0.4) rotate(180) translate(10,0)" />
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.4,0,0,-0.4,-4,0)"
+         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="Arrow1Mstart"
@@ -320,7 +321,7 @@
     </rdf:RDF>
   </metadata>
   <g
-     transform="translate(-329.38801,-647.59476)"
+     transform="translate(-329.40625,-649.58315)"
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1">
@@ -335,7 +336,7 @@
        style="fill:url(#linearGradient9415);fill-opacity:1;fill-rule:nonzero;stroke:#aa4400;stroke-width:0.24999999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0;stroke-dasharray:1.49999998, 0.49999999;stroke-dashoffset:0" />
     <g
        id="g9914"
-       transform="translate(0,62.731788)">
+       transform="translate(0,60.731788)">
       <rect
          transform="matrix(0,1,-1,0,0,0)"
          ry="3.8597095"
@@ -2790,12 +2791,12 @@
     <text
        sodipodi:linespacing="125%"
        id="text9390"
-       y="812.18359"
+       y="811.24438"
        x="331.66919"
        style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:helvetica;-inkscape-font-specification:helvetica"
        xml:space="preserve"><tspan
          style="font-size:6px"
-         y="812.18359"
+         y="811.24438"
          x="331.66919"
          id="tspan9392"
          sodipodi:role="line">(c)</tspan></text>
