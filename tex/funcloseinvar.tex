@@ -1,6 +1,6 @@
 \subsection*{Functional closure as an invariant property of evolvable systems}
 
-In this section, we will attempt to explain the functional closure property in category theoretic terms. The abstract components have been related to biological ones in the previous section. The biological property from which Rosen derived his diagram expressing the functional closure concept is metabolism regarded in the manner described above and as depicted in Figure \ref{fig:metabolicstringdiag}. A metabolic mapping in an evolvable system $\mathcal{E}$ can be thought of as a morphism between two objects in $\mathcal{E}$, the latter now regarded as an abstract algebraic category:
+In this section, we will attempt to explain the functional closure property in category theoretic terms. We will describe this property in the setting of a cartesian closed category (see Materials and Methods). Cartesian closed categories provide mathematical semantics for the simply typed lambda calculus \cite{Barendregt1985}. We will therefore sometimes refer to this setting as being ``typed''. This terminology is used to contrast the description in this section in terms of a cartesian closed category, which could be given equally well in terms of simply typed lambda calculus, with that in the next section in terms of the untyped lambda calculus. The abstract components have been related to biological ones in the previous section. The biological property from which Rosen derived his diagram expressing the functional closure concept is metabolism regarded in the manner described above and as depicted in Figure \ref{fig:metabolicstringdiag}. A metabolic mapping in an evolvable system $\mathcal{E}$ can be thought of as a morphism between two objects in $\mathcal{E}$, the latter now regarded as an abstract algebraic category:
 \begin{align*}
 f \colon A &\longrightarrow B\\
 a &\longmapsto f(a)=b
@@ -80,6 +80,9 @@ f(a)&=b,\\
 g(b)&=f,\\
 b(f)&=g.
 \end{align*}
+Again, it is clear that in the typed setting this is not possible. In the typed setting we worked within the language of a cartesian closed category, which, as mentioned, provides mathematical semantics for the simply typed lambda calculus. Therefore, we may ask which language has sufficient expressive power to be able to state the functional closure property. We have just noted that the functional closure property can be directly expressed if we remove the typing constraint. This involves passing from the simply typed to the type-free lambda calculus. We will explain the syntax of the type-free lambda calculus and then, by analogy to the fact that cartesian closed categories provide semantics for the simply-typed lambda calculus, we will ask: Which mathematical structure is capable of providing mathematical semantics for the type-free lambda calculus?
+
+The syntax of the type-free lambda calculus 
 
 %In order for  $\mathcal{E}$ to be functionally closed every morphism must be represented by or be in turn an object of the category. As we have stated, the set of functions $Mor_{\mathcal{E}}(A,B)$ between two objects in the category can be represented by the exponential object $B^A$. These exponential objects are associated with so-called evaluation maps both for the metabolic morphisms:
 %\begin{align*}
