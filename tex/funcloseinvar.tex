@@ -82,122 +82,59 @@ b(f)&=g.
 \end{align*}
 Again, it is clear that in the typed setting this is not possible. In the typed setting we worked within the language of a cartesian closed category, which, as mentioned, provides mathematical semantics for the simply typed lambda calculus. Therefore, we may ask which language has sufficient expressive power to be able to state the functional closure property. We have just noted that the functional closure property can be directly expressed if we remove the typing constraint. This involves passing from the simply typed to the type-free lambda calculus. We will explain the syntax of the type-free lambda calculus and then, by analogy to the fact that cartesian closed categories provide semantics for the simply-typed lambda calculus, we will ask: Which mathematical structure is capable of providing mathematical semantics for the type-free lambda calculus?
 
-The syntax of the type-free lambda calculus 
+In the Materials and Methods section, we provide a description of the syntax of the simply typed $lambda$-calculus and its semantics in terms of cartesian closed categories that was used in developing the model of functional closure in terms of a cartesian closed category. We have suggested that in order to be able to obtain a strong notion of equivalence between an object and a morphism, we need a language with at least some of the expressive capability of the type-free $\lambda$-calculus. We will therefore develop the analogous constructions of syntax and corresponding categorical semantics for the type-free lambda calculus.
 
-%In order for  $\mathcal{E}$ to be functionally closed every morphism must be represented by or be in turn an object of the category. As we have stated, the set of functions $Mor_{\mathcal{E}}(A,B)$ between two objects in the category can be represented by the exponential object $B^A$. These exponential objects are associated with so-called evaluation maps both for the metabolic morphisms:
-%\begin{align*}
-%e_f : B^A \times A &\longrightarrow B,\\
-%(f,a) & \longmapsto f(a),
-%\end{align*}
-%and for the maintenance system:
-%\begin{align*}
-%			e_g: B^{A^B} \times B &\longrightarrow B^A,\\
-%	    			            (g,b) & \longmapsto    g(b).
-%\end{align*}		
-%We can take the system as described and develop all the exponentiations of its maps and represent all the evaluation functions of its exponential objects:		
-%$$
-%			\xymatrix{
-%			 ... & ... & ... \\
-%			  B^{A^{B^A}} \times A \ar[r]_-{\epsilon} \ar[u]^-{..^A} & B^{A^B} \ar[u]^-{..} & B^{A^{B^B}} \times B\ar[l]^-{\epsilon}\ar[u]^-{..^B} \\
-%			 B^{A^A} \times A \ar[r]_-{\epsilon} \ar[u]^-{r^A} & B^A \ar[u]^-{r} & B^{A^B} \times B\ar[l]^-{\epsilon}\ar[u]^-{r^B} \\
-%			B^A \times A \ar[r]_-{\epsilon} \ar[u]^-{g^A} & B \ar[u]^-{g} & B^B \times B\ar[l]^-{\epsilon}\ar[u]^-{g^B} \\
-%			A^A \times A \ar[r]_-{\epsilon} \ar[u]^-{f^A} & 
-%			A\ar[u]^-{f} & A^B\times B\ar[l]^-{\epsilon}\ar[u]^-{f^B} }
-%$$
-%
-%Once the second level of exponentiation is reached, the system is in some sense already closed, and the higher level exponential objects can be reduced to lower level morphisms. This is explained in terms of the $\times \dashv Hom$ adjunction (see the appendix). 
-%\begin{align*}
-%- \times A: \mathcal{E} & \rightleftarrows \mathcal{E}: (-)^A
-%\end{align*}
-%For any $B \in Obj(\mathcal{E})$ there is a bijection:
-%\begin{align*}
-%\Mor_{\mathcal{E}}(B \times A, B) & \cong  \Mor_{\mathcal{E}}(B, B^A)
-%\end{align*}
-%$$
-%	\frac{B \times A \longrightarrow B}{B \longrightarrow B^A}
-%$$
-%For the case of $B$ we obtain the \emph{maintenance} map as the exponential transpose $g \colon B \rightarrow B^A$ of $\bar{g}:B \times A \rightarrow B$
-%$$
-%	\xymatrix{
-%	& B \times A \ar[d]^{g \times 1_A} \ar[dl]_{\bar{g}} & B \ar@{.>}[d]^{g}\\
-%	B & B^A \times A \ar[l]^{\epsilon_B} & B^A}
-%$$
-%where the counit of the $\times \dashv Hom$ adjunction is the evaluation map
-%$$
-%	\epsilon_B = ev_B \colon B^A \times A \longrightarrow B.
-%$$
-%In the analogous way, we have an adjunction involving $B^A$
-%\begin{align*}
-%\Mor_{\mathcal{E}}(B^A \times A, B) & \cong  \Mor_{\mathcal{E}}(B^A, B^{A})
-%\end{align*}
-%$$
-%	\frac{B^A \times A \longrightarrow B}{B^A \longrightarrow B^{A}}
-%$$
-%$$
-%	\xymatrix{
-%	& B^A \times A \ar[d]^{1_{B^A} \times 1_A} \ar[dl]_{\overline{1_{B^A}}} & 	B^A \ar@{.>}[d]^{1_{B^A}}\\
-%	B & B^A \times A \ar[l]^-{\overline{1_{B^A}}} & B^A}
-%$$
-%If we repeat the process exponentiating $B^A$ by $B$, the \emph{replication} map is obtained:	
-%\begin{align*}
-%- \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
-%\Mor_{\mathcal{C}}(B^A \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B^A, B^{A^B})
-%\end{align*}
-%$$
-%			\frac{B^A \times B \longrightarrow B^A}{B^A \longrightarrow B^{A^B}}
-%$$
-%$$ 
-%	\xymatrix{
-%	& B^A \times B \ar[d]^-{h \times 1_B} \ar[dl]_{\bar{h}} & B^A \ar@{.>}[d]^-{h}\\
-%	B^A & B^{A^B} \times B \ar[l]^{\epsilon_{B^A}} & B^{A^B}}
-%$$
-%Continuing this process with $B^{A^B}$
-%\begin{align*}
-%- \times B: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^B\\
-%\Mor_{\mathcal{C}}(B^{A^B} \times B, B^A) & \cong  \Mor_{\mathcal{C}}(B^{A^B}, B^{A^B})
-%\end{align*}
-%$$
-%	\frac{B^{A^B} \times B \longrightarrow B^A}{B^{A^B} \longrightarrow B^{A^B}}
-%$$
-%$$
-%	\xymatrix{
-%	& B^{A^B} \times B \ar[d]^{1_{B^{A^B}} \times 1_B} 	\ar[dl]_{\overline{1_{B^{A^B}}}} & B^{A^B} \ar@{.>}[d]^{1_{B^{A^B}}}\\
-%	B^A & B^{A^B} \times B \ar[l]^-{\overline{1_{B^{A^B}}}} & B^{A^B}}
-%$$
-%To summarize, we can attempt to express functional closure at the first level by the following series of deductions
-%\begin{prooftree}
-%	\AxiomC{$B^A \times A \longrightarrow B$}
-%	\UnaryInfC{$B^A \longrightarrow B^A$}
-%	\UnaryInfC{$1 \longrightarrow B^A \longrightarrow B^A$}							\UnaryInfC{$1 \times A \longrightarrow B \longrightarrow B^A$}
-%	\UnaryInfC{$A \longrightarrow B \longrightarrow B^A$}
-%	\UnaryInfC{$A \longrightarrow B^A$}
-%\end{prooftree}
-%If we prefer to continue with the biological metaphor initiated by Rosen's diagram, we can identify the functional closure property at the second level		
-%\begin{prooftree}
-%				\AxiomC{$B^{A^B} \times B \longrightarrow B^A$}
-%				\UnaryInfC{$B^{A^B} \longrightarrow B^{A^B}$}
-%				\UnaryInfC{$1 \longrightarrow B^{A^B} \longrightarrow B^{A^B}$}
-%				\UnaryInfC{$1 \times B \longrightarrow B^A \longrightarrow B^{A^B}$}
-%				\UnaryInfC{$B \longrightarrow B^A \longrightarrow B^{A^B}$}
-%				\UnaryInfC{$B \longrightarrow B^{A^B}$}
-%\end{prooftree}
-%Closing the system by:
-%\begin{align*}
-%- \times B: \mathcal{E} & \rightleftarrows \mathcal{E}: (-)^B\\
-%\Mor_{\mathcal{E}}(B^{A^B} \times B, B^{A^B}) & \cong  \Mor_{\mathcal{E}}(B^{A^B}, B^{A^{B^B}})
-%\end{align*}
-%
-%			$$
-%			\xymatrix{
-%			& B^{A^B} \times B \ar[d]^-{i \times 1_B} \ar[dl]_{\bar{i}} & B^{A^B} \ar@{.>}[d]^-{i}\\
-%			B^{A^B} & B^{A^{B^B}} \times B \ar[l]^{\epsilon} & B^{A^{B^B}}
-%			}
-%			$$
-%		$$
-%			\frac{B^{A^B} \times B \longrightarrow B^{A^B}}{B^{A^B} \longrightarrow B^{A^{B^B}}}
-%		$$
-%		the counit is the evaluation map
-%		$$
-%			\epsilon = ev_{B^{A^B}} \colon B^{A^{B^B}} \times B \longrightarrow B^{A^B}
-%		$$
-%	
+\subsubsection*{The type-free lambda calculus and its categorical semantics}
+The type-free lambda calculus can be seen as a special case of the simply-typed lambda calculus in which the set of basic types is restricted to contain only a single type. With the typing constraint imposed by having multiple types removed, it should be possible to perform self-application as in the term $\lambda x. xx$. If the second occurence of $x$ in this term has type $D$ and the whole term $xx$ has type $D$ then the first occurrence of $x$ in the term $xx$ must be construable as having type $[D \rightarrow D]$. A presentation of the type-free theory, $\mathbb{T}$, can then be given in a manner analogous to that of the simply typed lambda calculus:
+\begin{enumerate}
+\item{Types:}
+\begin{align*}
+&\mbox{one basic type: } D\\
+\end{align*}
+\item{Terms:}
+\begin{align*}
+&\mbox{variables: } x,y,z, \ldots \colon D\\
+&\mbox{constants: } i \colon [D \rightarrow D] \rightarrow D,\,\, r \colon D \rightarrow [D \rightarrow D]\\ 
+\end{align*}
+\item{Equations:}
+\begin{align*}
+            \lambda x. ri(x) &= \lambda x.x\\
+\end{align*}
+\end{enumerate}
+On this basis, we are led to the requirement that
+$$
+[D \rightarrow D] \cong D,
+$$
+which is a particular instantiation of a more general phenomenon referred to as a recursive domain equation. The process by which $[D \rightarrow D]$ is formed in the first place is via the internal Hom bifunctor $F \equiv [-,-] \colon \mathcal{C}^{op} \times \mathcal{C} \rightarrow \mathcal{C}$ on a category $\mathcal{C}$, which thereby restricts consideration for the purpose of finding denotational semantics for the type-free $\lambda$-calculus to categories $\mathcal{C}$ that are closed since this is a necessary condition for it to posses the necessary structure to define the internal Hom bifunctor. In this light, the solution $D$ to the equation $[D,D] \cong D$ is a fixed point $F(D,D) \cong D$ of the internal Hom bifunctor on some category $\mathcal{C}$.
+
+Given these restrictions, it is obvious that it will not be sufficient in the search for non-trivial models of the type-free theory of the $\lambda$-calculus to restrict consideration to the category $\mathbf{Sets}$ because in such a category $F$ has a fixed point $D$ only when $D$ is the one element set: $D = \{*\}$. However, $\mathbb{T}$ does not necessarily prove $\lambda y.ir(y)=\lambda y.y$, which would be true for $D = \{*\}$. Because something provable in $\mathbf{Sets}$ is not necessarily provable in the type-free $\lambda$-calculus there is no sense in which semantics in the category $\mathbf{Sets}$ could be complete with respect to the type-free $\lambda$-calculus.
+
+We will very briefly sketch the solution to this particular problem and refer to Barendregt, Abramsky and Jung, and Freyd for caveats and other details. In order to remedy this situation Scott eventually introduced \emph{domains}, which can be viewed as \emph{continuous lattices} (this construction appears with minor modifications with respect to the purpose of the present exposition in terms of various other closely related kinds of objects and their associated categories such as complete partial orders and complete lattices among others). A continuous lattice is a complete \todo{Include the definition of a lattice, meet, join, completeness, etc in the MM or supplement} lattice $D$ such that
+$$
+\forall d \in D, d = \bigvee \left\{ \bigwedge U | d \in U, U \mbox{ Scott-open}, U \subseteq D \right\}
+$$
+where \emph{Scott-open} refers to a subset $U$ of a domain $D$ that is upward closed in the sense that if $\bigvee \Delta \in U$ for a directed subset $\Delta \subseteq D$ then $U \cap \Delta \neq \emptyset$ and Scott-continuous functions are required to be monotonic and preserve least upper bounds of directed subsets of their domains. These continuous lattices can be equivalently characterized in topological terms as $T_0$-spaces in which every continuous function $f \colon P \rightarrow D$ from a subspace $P \subseteq S$ can be extended to a Scott-continuous function $\hat{f} \colon S \rightarrow D$.
+
+Domains of this form taken as objects and Scott-continuous functions between them taken as morphisms form cartesian closed categories where the internal-hom (i.e. exponential) objects were naturally themselves not sets but complete lattices of Scott-continuous functions. Since these form a cartesian closed category they could be used as described above to provide semantics for the simply-typed $\lambda$-calculus. However, categories of domains can also be constructed that have reflexive objects, $D_\infty$, which solve the recursive domain equation $F(D_{\infty},D_{\infty})=D_{\infty}$ that arises naturally as described above in the analysis of the type-free $\lambda$-calculus since, there, objects serve both as arguments and as functions that can be applied to such arguments.
+
+The way in which such solutions $D_\infty$ are constructed is via a generalization of the least fixed-point of a continuous function. A continous function $f \colon D \rightarrow D$ may have fixed-points $x$ such that $f(x)=x$. The least fixed-point for such a continuous function $f$ is then given by
+$$
+fix(f) = \bigvee_{n \in \omega} f^n(\bot)
+$$
+Now, we would like to extend this notion to the internal-hom bifunctor $F \equiv [-,-] \colon \mathcal{C}^{op} \times \mathcal{C} \rightarrow \mathcal{C}$ for $\mathcal{C}$ a category of continuous lattices and Scott-continuous functions. Given domains $D$ and $E$ as objects in such a category, we can define an \emph{embedding-projection pair} from $D$ to $E$ as a pair of Scott-continuous functions $i \colon D \rightarrow E$ and $r \colon E \rightarrow D$ such that $r \circ i = id_D$ and $i \circ r \leq id_E$ where the relation of order on functions is given pointwise. Reflexive domains are given by inverse limits (or projective limits, which are specializations of limits, as opposed to colimits, in category theory) of sequences of projections $r_n$ given by:
+\begin{align*}
+&D_0 = \mbox{ some object, $D$, in } \mathcal{C},\\
+&D_1 = [D_0 \rightarrow D_0],\\
+&D_{n+1} = [D_n \rightarrow D_n],\\
+&(r_n \colon D_{n+1} \rightarrow D_n)_{n \in \omega}.
+\end{align*}
+The fact that a suitable choice for the initial embedding-projection pair $\langle i_0, r_0 \rangle$ ultimately requires that the limit of the above sequence of projections coincide with the colimit of the sequence of embeddings
+$$
+(i_n \colon D_{n} \rightarrow D_{n+1})_{n \in \omega}.
+$$
+We therefore obtain
+$$
+\lim_{\leftarrow} (D_n, r_n) \cong D_\infty \cong \lim_{\rightarrow} (D_n, i_n).
+$$
+and this particular construction of $D_{\infty}$ provides a fixed-point $\text{FIX}(F)$ so that $F(D_{\infty},D_{\infty}) = D_{\infty}$ solves the given recursive domain equation associated to the untyped $\lambda$-calculus. This allows us to interpret the terms of the untyped lambda calculus as being the objects and morphisms $D_{\infty}$ and $[D_{\infty},D_{\infty}]$ respectively, which are now seen to be one and the same since $D_{\infty} \cong D_{\infty}^{D_{\infty}}$.
+
