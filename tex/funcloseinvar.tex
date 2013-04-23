@@ -1,4 +1,4 @@
-\subsection*{Functional closure as an invariant property of evolvable systems}
+\subsection*{Functional closure as a potentially invariant property of evolvable systems}
 
 In this section, we will attempt to explain the functional closure property in category theoretic terms. We will describe this property in the setting of a cartesian closed category (see Materials and Methods). Cartesian closed categories provide mathematical semantics for the simply typed lambda calculus \cite{Barendregt1985}. We will therefore sometimes refer to this setting as being ``typed''. This terminology is used to contrast the description in this section in terms of a cartesian closed category, which could be given equally well in terms of simply typed lambda calculus, with that in the next section in terms of the untyped lambda calculus. The abstract components have been related to biological ones in the previous section. The biological property from which Rosen derived his diagram expressing the functional closure concept is metabolism regarded in the manner described above and as depicted in Figure \ref{fig:metabolicstringdiag}. A metabolic mapping in an evolvable system $\mathcal{E}$ can be thought of as a morphism between two objects in $\mathcal{E}$, the latter now regarded as an abstract algebraic category:
 \begin{align*}
@@ -80,7 +80,20 @@ f(a)&=b,\\
 g(b)&=f,\\
 b(f)&=g.
 \end{align*}
-Again, it is clear that in the typed setting this is not possible. In the typed setting we worked within the language of a cartesian closed category, which, as mentioned, provides mathematical semantics for the simply typed lambda calculus. Therefore, we may ask which language has sufficient expressive power to be able to state the functional closure property. We have just noted that the functional closure property can be directly expressed if we remove the typing constraint. This involves passing from the simply typed to the type-free lambda calculus. We will explain the syntax of the type-free lambda calculus and then, by analogy to the fact that cartesian closed categories provide semantics for the simply-typed lambda calculus, we will ask: Which mathematical structure is capable of providing mathematical semantics for the type-free lambda calculus?
+If we collapse these terms we arrive at the expression
+\begin{equation}\label{eq:frec}
+f = gb = [bf]b = [[fa]f](fa).
+\end{equation}
+We can write the right hand side directly in lambda calculus syntax as the lambda term $M$
+$$
+M = \lambda x.((xa)x)(xa).
+$$
+Given that equation \ref{eq:frec} states that $f$ is a fixed point of the term $M$, we can use the fixed point combinator $\mathbf{Y} = \lambda f.(\lambda x. f (x x))(\lambda x. f (x x))$ to write $f$ in terms of $\mathbf{Y}$ and $M$ as
+$$
+f = \mathbf{Y}M.
+$$
+
+It is clear that in the typed setting this is not possible. This is true because of the obvious type-errors that would occur and this is related to the fact that the fixed-point combinators like $\mathbf{Y}$, of which there is an infinite number in the type-free $\lambda$-calculus, are known not to exist in the simply typed $\lambda$-calculus. In the typed setting we worked within the language of a cartesian closed category, which, as mentioned, provides mathematical semantics for the simply typed lambda calculus. Therefore, we may ask which language has sufficient expressive power to be able to state the functional closure property. We have just noted that the functional closure property can be directly expressed if we remove the typing constraint. This involves passing from the simply typed to the type-free lambda calculus. We will explain the syntax of the type-free lambda calculus and then, by analogy to the fact that cartesian closed categories provide semantics for the simply-typed lambda calculus, we will ask: Which mathematical structure is capable of providing mathematical semantics for the type-free lambda calculus?
 
 In the Materials and Methods section, we provide a description of the syntax of the simply typed $lambda$-calculus and its semantics in terms of cartesian closed categories that was used in developing the model of functional closure in terms of a cartesian closed category. We have suggested that in order to be able to obtain a strong notion of equivalence between an object and a morphism, we need a language with at least some of the expressive capability of the type-free $\lambda$-calculus. We will therefore develop the analogous constructions of syntax and corresponding categorical semantics for the type-free lambda calculus.
 
@@ -99,6 +112,7 @@ The type-free lambda calculus can be seen as a special case of the simply-typed 
 \item{Equations:}
 \begin{align*}
             \lambda x. ri(x) &= \lambda x.x\\
+            \lambda x. ir(x) &= \lambda x.x
 \end{align*}
 \end{enumerate}
 On this basis, we are led to the requirement that
@@ -132,7 +146,7 @@ The fact that a suitable choice for the initial embedding-projection pair $\lang
 $$
 (i_n \colon D_{n} \rightarrow D_{n+1})_{n \in \omega}.
 $$
-We therefore obtain
+It is eventually possible to obtain
 $$
 \lim_{\leftarrow} (D_n, r_n) \cong D_\infty \cong \lim_{\rightarrow} (D_n, i_n).
 $$
