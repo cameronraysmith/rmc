@@ -7,20 +7,21 @@
 \end{figure}
 Many salient features of biological organization at the level of a simple parasitic single-celled organism have recently been encapsulated in a unified computational model of the life-cycle of such a cell. In particular, this model tracks 16 important cell-level variables that each depend on a specified subset of 28 cellular processes. Figure \ref{fig:cellprocess} shows a schematic depicting the interrelationships between these processes specified in the context of this model.
 
-\begin{figure}
-\begin{center}
-\noindent\includegraphics[width=0.7\columnwidth]{fig/Citric_acid_cycle.pdf}
-\end{center}
-\caption{An informal model of the citric acid cycle in terms of biochemical reactions.}
-\label{fig:ctacyc}
-\end{figure}
 From an energetic, and thus physical, perspective, metabolic processes like the citric acid cycle (see Figure \ref{fig:ctacyc}) are certainly fundamental to the existence and persistence of all evolvable systems. As shown in Figure~\ref{fig:cellprocess}, metabolic processes form the connection between the dual components induced by considering cells as systems in the first place: the internal and the external environment. Moreover, it has been argued that metabolic processes form the basis or atomic level in a hierarchy of cellular processes. From this point of view, the complex regulatory networks involving small molecules, DNA, proteins and other molecular types are viewed as subservient to and layered atop core metabolic processes. Moreover, metabolic processes may be viewed as causally prior to the origin of evolution \cite{Braakman2012,Braakman2012a}.
 
-These facts regarding the fundamental nature motivate the ability to attempt to model metabolism abstractly in attempts to characterize and parse its essential properties from those that may be no more than historical contingency. There are several existing formalisms that exist for constructing dynamical models of metabolic processes. However, these do not attempt to explain how metabolic processes originated or how they are maintained by complex networks of molecular interactions that are not themselves considered only as indirectly related to metabolic processes.
+These facts regarding the fundamental nature of metabolic networks motivate the ability to attempt to model metabolism abstractly in attempts to characterize and parse its essential properties from those that may be no more than historical contingency. There are several existing formalisms that exist for constructing dynamical models of metabolic processes. However, these do not attempt to explain how metabolic processes originated or how they are maintained by complex networks of molecular interactions that are not themselves considered only as indirectly related to metabolic processes.
 
 Robert Rosen suggested a formalism for metabolic networks that does attempt to abstractly incorporate the interrelationships between metabolic networks and the other regulatory networks involving interactions among DNA, RNA, and proteins \cite{Rosen1972,Rosen1991}. At the heart of this formalism lies the conceptual conviction that, in some sense, metabolic processes must be able to intrinsically construct at least some of their own causal antecedents. The justification for stating ``at least some of'' as opposed to all is on the basis of taking the distinction between metabolic substrate and enzyme very seriously.
 
 In the context of a network of biochemical reactions, the heuristic distinction between metabolic substrates and enzymes is made on the basis of knowledge about the input and output of any given biochemical reaction. Those inputs that emerge from a biochemical reaction with relatively little to no change in their structure are considered to be enzymes and those whose structure is altered are considered to be substrates whose altered forms are referred to as products. 
+
+\begin{figure}
+\begin{center}
+\noindent\includegraphics[width=0.7\columnwidth]{fig/rTCA_skeleton.pdf}
+\end{center}
+\caption{A depiction of the structure of the citric acid cycle and the products of the associated pathways for which it generates substrates.}
+\label{fig:ctacyc}
+\end{figure}
 
 A situation analogous to the enzyme-substrate-product abstraction \todo{this terminology is used if nowhere else in the main BioPAX publication} is formalized in a fundamental manner in type theory, category theory (see Materials and Methods) and the relationship between them. That a distinction between object and morphism was perhaps conceptually fruitful was originally suggested in Russell and Whitehead's type theory as a means of circumventing the self-referential Russell's (also known as Barber's) paradox of set theory in which one can not determine internal to the language of set theory whether a set of all sets that contain themselves contains itself or not \cite{Bell2012}. In type theory a hierarchy is introduced that is analogous to the distinction fundamental to the definition of a category in category theory (see Materials and Methods) between objects (which are like substrates and products in terms of metabolic networks) and morphisms (which play the role of enzymes). In category theory, this distinction propagates up a hierarchy of higher-order functions where if we are in a category having a terminal, $1$, and exponential objects and we consider two objects $A$ and $B$ and morphisms between them, the collection of which is represented internal to a given category as a so-called exponential object $B^A$ or externally as $Hom(A,B)$ one of which might be $f \colon A \rightarrow B$ then the respective \emph{elements} of $A$, $B$ and $B^A$ are essentially of different types. From this perspective, while it is possible to \emph{evaluate} an element $f:B^A$ read ``an element $f$ of type $B^A$ given by $f \colon 1 \rightarrow B^A$'' at an element $a:A$ given by $a \colon 1 \rightarrow A$ to arrive at some element $b:B$ given by $b \colon 1 \rightarrow B$ it is not possible to likewise \emph{evaluate} an element $a:A$ at another element $a':A$ as this kind of statement is simply not able to be expressed within the confines of the language. If it were possible to do such a thing in some more expressive meta-language of which category theory only represents a fragment, then we can imagine that while reasoning within the language of category theory itself we have restricted ourselves to a mental state in which we are completely unaware and unable to become aware of this capacity.
 
@@ -47,6 +48,14 @@ m_1 \colon S_1 \otimes S_2 \otimes S_3 &\longrightarrow& P_1 \otimes P_2\\
 \end{eqnarray*}
 The adjective ``symmetric'' is appended to monoidal category based upon the assumption that the order of combination of substrates and production of products is unimportant and thus the factors in said tensor products may be permuted. The prototype example of such a monoidal category is the category of sets with cartesian product, but the formalism is not limited to this particular representation. We will proceed thinking in terms of this particular case as a useful mental crutch for grounding intuitions, but its limitations with respect to the capacity to recognize the full generality of the formalism at hand can be severe. Indeed, we will be forced to highlight at least one case where such intuition fails in order to explain the functional closure concept.
 
+\begin{figure}
+\begin{center}
+\noindent\includegraphics[width=0.9\columnwidth]{fig/blockdiagtop.pdf}
+\end{center}
+\caption{An abstraction of metabolic networks that can be interpreted in terms of symmetric monoidal categories and their associated string diagrams (see Materials and Methods).}
+\label{fig:metabolicstringdiag}
+\end{figure}
+
 The metabolic network formalism interpreted in symmetric monoidal categories then applies to the case in which we string together metabolic processes. An example of this is presented in Figure \ref{fig:metabolicstringdiag}. In this diagram, we have the following morphisms:
 \begin{eqnarray*}
 m_1 \colon S_1 \otimes S_2 &\longrightarrow& P_1 \otimes I_1,\\
@@ -67,8 +76,29 @@ In general we can consider any case of $f \colon \prod_i S_i \rightarrow \prod_j
 
 \begin{figure}
 \begin{center}
-\noindent\includegraphics[width=0.9\columnwidth]{fig/blockdiagtop.pdf}
+\noindent\includegraphics[width=0.5\columnwidth]{fig/blockassoclaw.pdf}
 \end{center}
-\caption{An abstraction of metabolic networks that can be interpreted in terms of symmetric monoidal categories and their associated string diagrams (see Materials and Methods).}
-\label{fig:metabolicstringdiag}
+\caption{A demonstration of a simple graph rewrite or reduction rule that can be applied to metabolic processes. This rule can be used in the reduction of a simple model of the citric acid cycle to an effective network.}
+\label{fig:stringassoclaw}
+\end{figure}
+
+A graph rewrite rule can be derived from the associative composition law that is valid in symmetric monoidal categories in terms of string diagrams like that of Figure~\ref{fig:metabolicstringdiag}. In this case we have template metabolic processes given by 
+\begin{eqnarray*}
+m_1 \colon S_1 &\longrightarrow& P_1 \otimes I_1,\\
+m_2 \colon I_1 \otimes S_2 &\longrightarrow& P_2,
+\end{eqnarray*}
+shown in the top panel of Figure \ref{fig:stringassoclaw}. Following the application of the rewrite rule presented in Figure \ref{fig:stringassoclaw} we have the composite effective metabolic process
+\begin{eqnarray*}
+m_{1}m_{2} \equiv m_1 \circ m_2 \colon S_1 \otimes S_2 &\longrightarrow& P_1 \otimes P_2,
+\end{eqnarray*}
+where we note that the intermediate $I_1$ has been eliminated from both the inputs and outputs of the $m_1$ and $m_2$ processes.
+
+This formalism has been previously applied, albeit not in the explicit context of symmetric monoidal categories, to reduce via associative composition the citric acid cycle to a smaller collection of effective reactions. The steps involved in this process are depicted in Figure \ref{fig:ctacycred}. The fully reduced form of the citric acid cycle presented in Figure \ref{fig:ctacycred}d will be used in what proceeds to provide a biological example with respect to which the additional molecular interactions that may be necessary in order to achieve functional closure may be defined.
+
+\begin{figure}
+\begin{center}
+\noindent\includegraphics[width=0.9\columnwidth]{fig/rTCA-reduction.pdf}
+\end{center}
+\caption{A demonstration of the reduction of the biochemical reactions comprising the citric acid cycle according to the graph rewrite rule depicted in Figure \ref{fig:stringassoclaw}. This figure is adapted from the citric acid cycle reduction process developed in \cite{Braakman2012a}}
+\label{fig:ctacycred}
 \end{figure}
