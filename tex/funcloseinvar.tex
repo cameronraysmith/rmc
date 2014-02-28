@@ -1,3 +1,4 @@
+%!TEX root = ../plos_template.tex
 \subsection*{Functional closure as a potentially invariant property of evolvable systems}
 
 In this section, we will attempt to explain the functional closure property in category theoretic terms. We will describe this property in the setting of a cartesian closed category (see Materials and Methods). Cartesian closed categories provide mathematical semantics for the simply typed lambda calculus \cite{Barendregt1985}. We will therefore sometimes refer to this setting as being ``typed''. This terminology is used to contrast the description in this section in terms of a cartesian closed category, which could be given equally well in terms of simply typed lambda calculus, with that in the next section in terms of the untyped lambda calculus. The abstract components have been related to biological ones in the previous section. The biological property from which Rosen derived his diagram expressing the functional closure concept is metabolism regarded in the manner described above and as depicted in Figure \ref{fig:metabolicstringdiag}. A metabolic mapping in an evolvable system $\mathcal{E}$ can be thought of as a morphism between two objects in $\mathcal{E}$, the latter now regarded as an abstract algebraic category:
@@ -17,8 +18,8 @@ This \emph{regeneration} system itself represented by $g \in B^{A^B}$ is also as
 \begin{align*}
 h \colon B^A & \longrightarrow B^{A^B}\\
 f & \longmapsto h(f)=g.
-\end{align*}	
-In the biological metaphor commonly associated to this abstract construction, this \emph{meta-regeneration} system is associated either to the maintenance of some degree of structural invariance in the topology of the combined gene regulatory and metabolic interaction networks underlying an organism. In this light, this process may be associated to the DNA replication and reproduction process. In any case, the argument proliferating hierarchical levels of organization necessary to strive toward functional closure may be continued \emph{ad infinitum} (i.e. the next step would be to ask for the origin of $h$ and to posit the existence of another higher-order morphism that takes $g$ as input and produces $h$, see Figure \ref{fig:hom}b). 
+\end{align*}
+In the biological metaphor commonly associated to this abstract construction, this \emph{meta-regeneration} system is associated either to the maintenance of some degree of structural invariance in the topology of the combined gene regulatory and metabolic interaction networks underlying an organism. In this light, this process may be associated to the DNA replication and reproduction process. In any case, the argument proliferating hierarchical levels of organization necessary to strive toward functional closure may be continued \emph{ad infinitum} (i.e. the next step would be to ask for the origin of $h$ and to posit the existence of another higher-order morphism that takes $g$ as input and produces $h$, see Figure \ref{fig:hom}b).
 
 From a biological perspective, systems of the form described may be able to avoid such an infinite regress by achieving a form of \emph{functional closure} in which, for example, we can materially identify a metabolic product $B$ with a replication function $h$ or perhaps even with the entire set of replication functions $B^{A^B{^B{^A}}}$. If we take the former case then we have introduced a problem that cannot be dealt with given the definition of a category because of the fundamental typing distinction therein between objects and morphisms. Although we might be able to associate an element or point of the object or type $B$ with $h \in B^{A^B{^B{^A}}}$, we sustain a typing error if we attempt to express the fact that these are materially equivalent because $h \colon 1 \rightarrow B$ is of type $B$ while $h \colon B^A \rightarrow B^{A^B}$ is of type $B^{A^B{^B{^A}}}$. Thus we would attempt to state $h:B = h:B^{A^B{^B{^A}}}$, but this is impossible to do, at least naively, within category theory as it produces a type error due to the fact that equations are only allowed between elements (respectively paths) with the same type (respectively with the same domain and codomain) Figure \ref{fig:hom}a. The other option is to avoid attempting to identify such elements and attempt to simply identify objects themselves. In this sense, we would attempt to express closure internally as $B \cong B^{A^B{^B{^A}}}$ or externally as $Mor_{\mathcal{E}}(1,B) \cong Mor_{\mathcal{E}}(B^A,B^{A^B})$. This approach could be considered to solve the typing issue since we could more explicitly state that $B \colon Set \cong B^{A^B{^B{^A}}} \colon Set$ or more generally for any category $B \colon Ob(\mathcal{E}) \cong B^{A^B{^B{^A}}} \colon Ob(\mathcal{E})$. However, we have now implied something stronger and less intuitive about the biological meaning of functional closure by stating that the set of metabolites is somehow isomorphic to the set of \emph{all possible} replication morphisms. Moreover, if such a relationship were to be satisfied, it could only be satisfied by the most trivial case in the category of sets $A = \{*\} = B$ so that $|B|=1=|B^{A^B{^B{^A}}}|$.
 
@@ -49,7 +50,7 @@ We first consider the preimages of the evaluation morphisms as
 \hat{ev}^{*}(b) \equiv ev^{*}_b \colon B^A &\longrightarrow B^{A^B},\\
 f &\longmapsto g |g(b)=f.
 \end{align*}
-If, in this case, the evaluation morphism can be shown to have an inverse (i.e. $\hat{ev}^{*} \circ \hat{ev} = 1_A$ and $\hat{ev} \circ \hat{ev}^{*}= 1_{B^{B^A}}$) for some potentially restricted domain of definition of $\hat{ev}$ then the inverse morphism can also be defined pointwise as 
+If, in this case, the evaluation morphism can be shown to have an inverse (i.e. $\hat{ev}^{*} \circ \hat{ev} = 1_A$ and $\hat{ev} \circ \hat{ev}^{*}= 1_{B^{B^A}}$) for some potentially restricted domain of definition of $\hat{ev}$ then the inverse morphism can also be defined pointwise as
 \begin{align*}
 \hat{ev}^{-1}(b) \equiv ev^{-1}_b \colon B^A &\longrightarrow B^{A^B},\\
 f &\longmapsto g | g(b) = f.
@@ -107,7 +108,7 @@ The type-free lambda calculus can be seen as a special case of the simply-typed 
 \item{Terms:}
 \begin{align*}
 &\mbox{variables: } x,y,z, \ldots \colon D\\
-&\mbox{constants: } i \colon [D \rightarrow D] \rightarrow D,\,\, r \colon D \rightarrow [D \rightarrow D]\\ 
+&\mbox{constants: } i \colon [D \rightarrow D] \rightarrow D,\,\, r \colon D \rightarrow [D \rightarrow D]\\
 \end{align*}
 \item{Equations:}
 \begin{align*}
