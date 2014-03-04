@@ -23,24 +23,23 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.4201172"
-     inkscape:cx="106.85938"
+     inkscape:zoom="4.8402344"
+     inkscape:cx="70.497499"
      inkscape:cy="107.94932"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1176"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <defs
      id="defs3126">
     <linearGradient
-       inkscape:collect="always"
        id="linearGradient7173">
       <stop
-         style="stop-color:#ccffcc;stop-opacity:1;"
+         style="stop-color:#52ba52;stop-opacity:1;"
          offset="0"
          id="stop7175" />
       <stop
@@ -49,10 +48,9 @@
          id="stop7177" />
     </linearGradient>
     <linearGradient
-       inkscape:collect="always"
        id="linearGradient7161">
       <stop
-         style="stop-color:#ffcccc;stop-opacity:1;"
+         style="stop-color:#ff7878;stop-opacity:1;"
          offset="0"
          id="stop7163" />
       <stop
@@ -2781,19 +2779,19 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:helvetica;-inkscape-font-specification:helvetica"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue"
        x="332.03973"
-       y="653.95715"
+       y="654.37036"
        id="text9365"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan9367"
          x="332.03973"
-         y="653.95715"
-         style="font-size:6px">(a)</tspan></text>
+         y="654.37036"
+         style="font-size:6px;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue">A</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:helvetica;-inkscape-font-specification:helvetica"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue"
        x="331.66919"
        y="747.88782"
        id="text9365-6"
@@ -2802,18 +2800,18 @@
          id="tspan9367-2"
          x="331.66919"
          y="747.88782"
-         style="font-size:6px">(b)</tspan></text>
+         style="font-size:6px;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue">B</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text9390"
        y="811.24438"
        x="331.66919"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:helvetica;-inkscape-font-specification:helvetica"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue"
        xml:space="preserve"><tspan
-         style="font-size:6px"
+         style="font-size:6px;font-family:HelveticaNeue;-inkscape-font-specification:HelveticaNeue"
          y="811.24438"
          x="331.66919"
          id="tspan9392"
-         sodipodi:role="line">(c)</tspan></text>
+         sodipodi:role="line">C</tspan></text>
   </g>
 </svg>

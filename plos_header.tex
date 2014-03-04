@@ -1,3 +1,4 @@
+%!TEX root = plos_template.tex
 % Template for PLoS
 % Version 1.0 January 2009
 %
@@ -21,17 +22,18 @@
 
 % cite package, to clean up citations in the main text. Do not remove.
 \usepackage{cite}
-\usepackage{color} 
+
+\usepackage{color}
 
 % Use doublespacing - comment out for single spacing
-%\usepackage{setspace} 
+%\usepackage{setspace}
 %\doublespacing
 
 % Text layout
 \topmargin 0.0cm
 \oddsidemargin 0.5cm
 \evensidemargin 0.5cm
-\textwidth 16cm 
+\textwidth 16cm
 \textheight 21cm
 
 % Bold the 'Figure #' in the caption and separate it with a period
@@ -60,6 +62,10 @@
 \usepackage{subcaption}
 % hyperref
 \usepackage{hyperref}
+\hypersetup{colorlinks=true,
+linkcolor=[rgb]{.67 .27 .27},
+citecolor=[rgb]{.09 .29 .54},
+urlcolor=[rgb]{.09 .29 .54}}
 % color table cells http://goo.gl/ZmpJv
 \usepackage[table]{xcolor}
 %rotate text in table http://goo.gl/Lb4Zd
@@ -73,7 +79,20 @@
 %semantics
 \usepackage{latexsym}
 \usepackage{stmaryrd}
+
+% set depth for table of contents
+% http://tex.stackexchange.com/a/17879/6784
+% http://tex.stackexchange.com/a/11669/6784
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{0}
+
 %% ** EDIT HERE **
 %% PLEASE INCLUDE ALL MACROS BELOW
+
+% Set autoref text
+% http://tex.stackexchange.com/a/36576/6784
+\renewcommand*{\figureautorefname}{Fig.}
+\renewcommand*{\equationautorefname}{Eq.}
+\renewcommand*{\tableautorefname}{Table}
 
 %% END MACROS SECTION

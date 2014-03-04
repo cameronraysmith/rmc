@@ -383,7 +383,7 @@ $q_i = p_i \circ q$ for every object $i$ of $\mathcal{I}$.
 &\ar[ldd]_{q_i} W \ar@{-->}[d]^{q} \ar[rdd]^{q_{i'}} & \\
 & \ar[ld]^{p_i} \lim\limits_{\longleftarrow \mathcal{I}} M \ar[rd]_{p_{i'}} &\\
 M_i  \ar[rr]_{M(\phi)} & & M_{i'} \\
-i \ar[rr]^{\phi} & & i'  
+i \ar[rr]^{\phi} & & i'
 }
 \end{displaymath}
 
@@ -536,7 +536,7 @@ Given categories $\mathcal{C}_1$, $\mathcal{C}_2$, and $\mathcal{D}$. A {\it bif
 \begin{definition}
 \label{definition-hom-functor}
 }{}
-The {\it hom-functor} is a bifunctor defined on the product of a category $\mathcal{C}$ with its self-dual category $\mathcal{C}^{opp}$, which takes values in the category $\textit{Sets}$. Thus for a category $C$ its hom-functor is 
+The {\it hom-functor} is a bifunctor defined on the product of a category $\mathcal{C}$ with its self-dual category $\mathcal{C}^{opp}$, which takes values in the category $\textit{Sets}$. Thus for a category $C$ its hom-functor is
 $$
 hom(-,-): \mathcal{C}^{opp} \times \mathcal{C} \rightarrow \textit{Sets},
 $$
@@ -548,7 +548,7 @@ h_{(-)} &:& \mathcal{C} \rightarrow \textit{Sets}^{\mathcal{C}^{opp}}.
 The hom-functor maps
 \begin{enumerate}
 \item objects $(c,c') \in \mathcal{C}^{opp} \times \mathcal{C}$ to the hom-set $\Mor_{\mathcal{C}} (c,c')$, which is the set of morphisms in $\mathcal{C}$ with domain $c$ and codomain $c'$.
-\item morphisms 
+\item morphisms
 $$
 (f,g):(c,c') \rightarrow (d,d') \in \Mor(\mathcal{C}^{opp} \times \mathcal{C}),
 $$
@@ -582,7 +582,7 @@ Functors that are isomorphic to $h^c$ or $h_c$ are referred to as {\it coreprese
 \label{fig:hom}
 \end{figure}
 
-The concrete action of $h_{c'}$ on objects and morphisms in $\cC$ is summarized in Figure \ref{fig:hom}. The preceding definitions are standard category theoretic constructions. Ellerman has proposed an interpretation of adjoint functors, that demonstrates their relevance to the concept of information encoding and decoding (or sending and receiving) in the context of biological systems \cite{Ellerman2005}.
+The concrete action of $h_{c'}$ on objects and morphisms in $\cC$ is summarized in \ref{fig:hom}. The preceding definitions are standard category theoretic constructions. Ellerman has proposed an interpretation of adjoint functors, that demonstrates their relevance to the concept of information encoding and decoding (or sending and receiving) in the context of biological systems \cite{Ellerman2005}.
 
 \iftoggle{thmsty}{
 \begin{definition}
@@ -628,7 +628,7 @@ $$
 functorial in $c \in \Ob(\mathcal{C})$, and
 $d \in \Ob(\mathcal{D})$.
 
-Morphisms that are associated with each other according to the bijections of an adjunction are called {\it adjoint transposes} of one another. 
+Morphisms that are associated with each other according to the bijections of an adjunction are called {\it adjoint transposes} of one another.
 
 There is a correspondence
 
@@ -638,15 +638,15 @@ g &: Fc \rightarrow d, \,\, g \in \Mor(\mathcal{D})\\
 g^* &: c \rightarrow Gd, \,\, g^* \in \Mor(\mathcal{C})
 \end{align*}
 
-given by $\phi_{c,d}(g) = g^*$. 
-Similarly for 
+given by $\phi_{c,d}(g) = g^*$.
+Similarly for
 
 \begin{align*}
 f &: c \rightarrow Gd, \,\, f \in \Mor(\mathcal{C})\\
-f^* &: Fc \rightarrow d, \,\, f^* \in \Mor(\mathcal{D}) 
+f^* &: Fc \rightarrow d, \,\, f^* \in \Mor(\mathcal{D})
 \end{align*}
 
-given by $\phi_{c,d}^{-1}(f) = f^*$. 
+given by $\phi_{c,d}^{-1}(f) = f^*$.
 We see then that $g^* = f$ and $f^* = g$.
 
 Consider the identity morphism $1_{Fc} \in \Mor_{\mathcal{D}}(Fc,Fc)$. The adjoint transpose of $1_{Fc}$ is the {\it unit} morphism at $c$
@@ -678,18 +678,18 @@ We can then give an alternative definition of adjoint functors in terms of the u
 F & \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G\\
 \eta & \colon 1_{\mathcal{C}} \rightarrow GF
 \end{align*}
-where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ there exists a unique $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ such that $f = Gg \circ \eta_c$				
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ there exists a unique $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ such that $f = Gg \circ \eta_c$
 
 		$$
 					\xymatrix{
 					c \ar[r]^{\eta_c} \ar[dr]_{f} & G F c \ar[d]^{G g} & F c \ar@{.>}[d]^{g}\\
 					& G d & d}
 		$$
-	
+
 		$$
 			\frac{c \longrightarrow Gd}{Fc \longrightarrow d}
 		$$
-	
+
 We can then give an alternative definition of adjoint functors in terms of the counit natural transformation (dually the unit natural transformation) as
 $$
 F \colon \mathcal{C} \rightleftarrows \mathcal{D} \colon G
@@ -697,7 +697,7 @@ $$
 $$
 \epsilon \colon FG \rightarrow 1_{\mathcal{C}}
 $$
-where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ there exists a unique $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ such that $g = \epsilon_D \circ Ff$	
+where for any $c \in \Ob (\mathcal{C})$, $d \in \Ob (\mathcal{D})$, and $g \colon Fc \rightarrow d \in \Mor(\mathcal{D})$ there exists a unique $f \colon c \rightarrow Gd \in \Mor(\mathcal{C})$ such that $g = \epsilon_D \circ Ff$
 
 $$
 			\xymatrix{
@@ -708,7 +708,7 @@ $$
 		$$
 			\frac{Fc \longrightarrow d}{c \longrightarrow Gd}
 		$$
-		
+
 
 \begin{align*}
 - \times Z: \mathcal{C} & \rightleftarrows \mathcal{C}: (-)^Z\\
@@ -724,7 +724,7 @@ $$
 			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
 			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
 			$$
-	
+
 			$$
 			\xymatrix{
 			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
@@ -753,7 +753,7 @@ $$
 		$$
 			\epsilon_Y = ev_Y \colon Y^Z \times Z \longrightarrow Y
 		$$
-	
+
 
 
 \begin{align*}
@@ -770,10 +770,10 @@ $$
 			& \Pi_Z X \ar[d]^{\Pi_Z \bar{f}} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
 			Y & \Pi_Z E_Z Y \ar[l]^{\epsilon_Y} & E_Z Y}
 			$$
-		
+
 			$$
 			\xymatrix{
 			& X \times Z \ar[d]^{\bar{f} \times 1_Z} \ar[dl]_{f} & X \ar@{.>}[d]^{\bar{f}}\\
 			Y & Y^Z \times Z \ar[l]^{\epsilon_Y} & Y^Z}
 			$$
-	
+

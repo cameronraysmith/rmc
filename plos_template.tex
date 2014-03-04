@@ -2,66 +2,79 @@
 
 \begin{document}
 
+% Add Figure, Table prefixes to references
+% http://tex.stackexchange.com/a/6063/6784
+\let\ref\autoref
+
+% Table of contents
+% http://tex.stackexchange.com/a/7357/6784
+%\pagebreak
+\pagenumbering{gobble}
+\tableofcontents
+\listoffigures
+%\listoftables
+\pagebreak
+\pagenumbering{arabic}
+
 % Title must be 150 characters or less
 \input{tex/titleinfo.tex}
 
 \listoftodos
 
 % Please keep the abstract between 250 and 300 words
-\section*{Abstract}
+\section{Abstract}
 \input{tex/abstract.tex}
 
 % Please keep the Author Summary between 150 and 200 words
 % Use first person. PLoS ONE authors please skip this step.
 % Author Summary not valid for PLoS ONE submissions.
-%\section*{Author Summary}
+%\section{Author Summary}
 
 %\input{tex/todonoteinstructions}
 
-\section*{Introduction}
+\section{Introduction}
 \input{tex/introduction.tex}
 
 % Results and Discussion can be combined.
-\section*{Metabolism-oriented abstraction of biological organization}
+\section{Metabolism-oriented abstraction of biological organization}
 \input{tex/metabolism.tex}
 
-\section*{Functional closure}
+\section{Functional closure}
 \input{tex/funcloseinvar.tex}
 
-\section*{Discussion}
+\section{Discussion}
 \input{tex/discussion.tex}
 
+% Do NOT remove this, even if you are not including acknowledgments
+\section{Acknowledgments}
+The authors would like to thank Jay Sulzberger and Noson Yanofsky for helpful discussions.
 
+%\section{References}
+% The bibtex filename
+\bibliography{bib/books,bib/papers}
+\pagebreak
 % You may title this section "Methods" or "Models".
 % "Models" is not a valid title for PLoS ONE authors. However, PLoS ONE
 % authors may use "Analysis"
-\section*{Materials and Methods}
-\subsection*{Categories\todo{This section is taken from planetmath.org. It is standard stuff that could be replaced by references to textbooks, but is helpful to include in supplemental material for reference.}}
+\section{Materials and Methods}
+\subsection{Categories}\todo{Some of this section is ``textbook'' material taken from planetmath.org. It is a helpful reference to definitions for reviewers.}
 \input{tex/intuition.tex}
 \input{tex/category.tex}
 %
-\subsection*{Cartesian closed category}
+\subsection{Cartesian closed category}
 \input{tex/cartesianclosedcat.tex}
 %
-\subsection*{Monoidal categories}
+\subsection{Monoidal categories}
 \input{tex/monoidalcategory.tex}
 %
-\subsection*{Symmetric monoidal categories}
+\subsection{Symmetric monoidal categories}
 \input{tex/symmetricmonoidalcategory.tex}
 
 \input{tex/lambdaccc.tex}
-% Do NOT remove this, even if you are not including acknowledgments
-\section*{Acknowledgments}
 
+%\section{Figure Legends}
 
-%\section*{References}
-\bibliographystyle{plos2009}
-% The bibtex filename
-\bibliography{bib/books,bib/papers}
-
-\section*{Figure Legends}
-
-\section*{Tables}
+%\section{Tables}
 
 \end{document}
 
