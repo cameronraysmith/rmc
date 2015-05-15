@@ -6,7 +6,7 @@
 # list of automatic variables
 # http://www.gnu.org/software/make/manual/html_node/Automatic-Variables.html#Automatic-Variables
 
-TOPTEX = plos_template.tex
+TOPTEX = notes.tex
 
 BIBFILES = bib/books.bib \
 	   bib/papers.bib
